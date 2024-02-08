@@ -1,0 +1,11 @@
+<igx-input-group type="border" class="input">
+	<input type="text" [ngModel]="inputValue" (change)="igxInputNgModelChange($event)" igxInput/>
+	<label igxLabel>Label/Placeholder</label>
+</igx-input-group>
+<igx-input-group type="border" class="input">
+	<input type="text" [ngModel]="inputValue!" igxInput />
+	<label igxLabel>Label/Placeholder</label>
+</igx-input-group>
+<p class="text">
+	{{ inputValue }}
+</p>
