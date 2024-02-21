@@ -1,5 +1,5 @@
 <igx-input-group type="border" class="input">
-	<input type="text" [ngModel]="inputValue" (change)="igxInputNgModelChange($event)" igxInput/>
+	<input type="text" [(ngModel)]="inputValue" [ngModelOptions]="{updateOn: 'blur'}" igxInput>
 	<label igxLabel>Label/Placeholder</label>
 </igx-input-group>
 <igx-input-group type="border" class="input">

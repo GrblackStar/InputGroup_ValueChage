@@ -10,8 +10,4 @@ export class MasterViewComponent {
 	public inputValue?: string;
 	public dATEVAR?: Date;
 	public value?: any;
-
-	public igxInputNgModelChange(event: any) {
-		this.inputValue = event.target.value;
-	}
 }

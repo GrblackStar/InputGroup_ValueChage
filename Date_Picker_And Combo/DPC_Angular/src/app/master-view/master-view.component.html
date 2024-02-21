@@ -1,0 +1,57 @@
+<!--
+<igx-date-picker type="border" mode="dialog" (valueChange)="datePickerValueChange($event)" class="date-picker">
+  <label igxLabel>Date</label>
+</igx-date-picker>
+<igx-simple-combo type="border" [data]="northwindCustomers" displayKey="customerID" (selectionChanging)="singleSelectComboSelectionChanging($event)" class="user-input">
+  <label igxLabel>Label/Placeholder</label>
+</igx-simple-combo>
+<igx-date-picker type="border" mode="dialog" class="date-picker">
+  <label igxLabel>Date</label>
+</igx-date-picker>
+<igx-simple-combo type="border" [data]="financialBoxOfficeRevenue" displayKey="Franchise" class="user-input">
+  <label igxLabel>Label/Placeholder</label>
+</igx-simple-combo>
+<igx-input-group type="border" class="user-input">
+  <input type="text" [value]="dateVar!" igxInput />
+  <label igxLabel>Label/Placeholder</label>
+</igx-input-group>
+<igx-input-group type="border" class="user-input">
+  <input type="text" [value]="customerObject?.customerID" igxInput />
+  <label igxLabel>Label/Placeholder</label>
+</igx-input-group>
+-->
+
+
+
+<!-- DATE PICKER -->
+<igx-date-picker type="border" mode="dialog" [(ngModel)]="dateVar" (valueChange)="datePickerValueChange($event)" class="date-picker">
+  <label igxLabel>Date</label>
+</igx-date-picker>
+<igx-input-group type="border" class="user-input">
+  <input type="text" [ngModel]="dateVar!" igxInput/>
+  <label igxLabel>Label/Placeholder</label>
+</igx-input-group>
+<!-- 
+    if we have just valuechange without ngmodel, its one way binding
+    when the value is changed from the first date picker, it doesn't change the value in the second
+    but if the value in the second is changed, the first changes as well
+  
+    if we have both the ngmodel and the valueChange, it works two ways, the same as with jst the ngmodel
+-->
+<igx-date-picker type="border" mode="dialog" (valueChange)="datePickerValueChange($event)" class="date-picker">
+  <label igxLabel>Date</label>
+</igx-date-picker>
+
+
+<!-- COMBO -->
+<igx-simple-combo type="border" [data]="northwindCustomers" displayKey="customerID" [(ngModel)]="customerObject" class="user-input">
+  <label igxLabel>Label/Placeholder</label>
+</igx-simple-combo>
+<igx-input-group type="border" class="user-input">
+  <input type="text" [value]="customerObject?.customerID" igxInput />
+  <label igxLabel>Label/Placeholder</label>
+</igx-input-group>
+<!-- the same thing like with the date picker -->
+<igx-simple-combo type="border" [data]="northwindCustomers" displayKey="customerID" (selectionChanging)="singleSelectComboSelectionChanging($event)" class="user-input">
+  <label igxLabel>Label/Placeholder</label>
+</igx-simple-combo>

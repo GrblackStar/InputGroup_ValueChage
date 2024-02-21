@@ -1,0 +1,87 @@
+@page "/"
+@page "/master_view"
+@using Models.Northwind
+@using Northwind
+@using Financial
+@using Models.Financial
+@inject INorthwindService NorthwindService
+@inject IFinancialService FinancialService
+
+<div class="row-layout master-view-container">
+    <!--<IgbDatePicker Label="Date" SelectedValueChanged="DatePickerSelectedValueChanged" class="date-picker" master_view-scope></IgbDatePicker>-->
+    <!--<IgbCombo Outlined="true" Data="@_northwindCustomers" Label="Label/Placeholder" DisplayKey="CustomerID" SingleSelect="true" Change="SingleSelectComboChange" class="user-input" master_view-scope></IgbCombo>-->
+    <!--<IgbInput Value="@(_dateVar.ToString())" Label="Label/Placeholder" Outlined="true" class="user-input" master_view-scope></IgbInput>-->
+
+
+
+
+    <!-- DATE PICKER TWO WAY BINDING-->
+    <IgbDatePicker Label="Date" @bind-Value="_dateVar" SelectedValueChanged="DatePickerSelectedValueChanged" class="date-picker" master_view-scope></IgbDatePicker>
+    <IgbDatePicker Label="Date" @bind-Value="_dateVar" class="date-picker" master_view-scope></IgbDatePicker>
+    <p class="typography__body-1 text">
+        @_dateVar
+    </p>
+
+
+    <!-- COMBO TWO WAY BINDIN3G-->
+    <!--<IgbCombo Outlined="true" Data="@_northwindCustomers" @bind-Value="_customerObject" Label="Label/Placeholder" DisplayKey="CustomerID" SingleSelect="true" class="user-input" master_view-scope></IgbCombo>-->
+    
+    <IgbCombo Outlined="true" Data="@_northwindCustomers" @bind-Value="_customObjectAsSingleSelectArray" Label="Label/Placeholder" DisplayKey="CustomerID" SingleSelect="true" class="user-input" master_view-scope></IgbCombo>
+
+    @* <IgbCombo Outlined="true" Data="@_northwindCustomers" Label="Label/Placeholder" DisplayKey="CustomerID" SingleSelect="true" Change="SingleSelectComboChange" class="user-input" master_view-scope></IgbCombo> *@
+    <IgbInput @bind-Value="_customerObjectCustomerId" Label="Label/Placeholder" Outlined="true" class="user-input" master_view-scope></IgbInput>
+    
+
+
+</div>
+
+@code {
+    private DateTime _dateVar;
+    private string _customerObjectCustomerId
+    {
+        get
+        {
+            return _customerObject?.CustomerID.ToString() ?? default;
+        }
+        set
+        {
+            if (_northwindCustomerLookup.TryGetValue(value, out CustomersType customer))
+            {
+                _customerObject = customer;
+            }
+        }
+    }
+    private CustomersType _customerObject
+    {
+        get => _customObjectAsSingleSelectArray[0] as CustomersType;
+        set => _customObjectAsSingleSelectArray[0] = value;
+    }
+    private object[] _customObjectAsSingleSelectArray = new object[1];
+
+    private List<CustomersType> _northwindCustomers = new();
+    private Dictionary<string, CustomersType> _northwindCustomerLookup = new();
+    private List<BoxOfficeRevenueType> _financialBoxOfficeRevenue = new();
+
+    public void DatePickerSelectedValueChanged(IgbSelectedValueChangedEventArgs e)
+    {
+        this._dateVar = (DateTime)e.NewValue;
+    }
+
+    public void SingleSelectComboChange(IgbComboChangeEventArgs e)
+    {
+        this._customerObject = (CustomersType)e.Detail.NewValue.FirstOrDefault();
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _northwindCustomers = await NorthwindService.GetCustomers();
+        for (int i = 0; i < _northwindCustomers.Count; i++)
+        {
+            var customer = _northwindCustomers[i];
+            _northwindCustomerLookup.Add(customer.CustomerID, customer);
+        }
+
+        _financialBoxOfficeRevenue = await FinancialService.GetBoxOfficeRevenue();
+        await base.OnInitializedAsync();
+    }
+}
