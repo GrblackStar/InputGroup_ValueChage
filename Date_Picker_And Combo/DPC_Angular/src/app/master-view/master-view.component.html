@@ -51,7 +51,7 @@
   <input type="text" [value]="customerObject?.customerID" igxInput />
   <label igxLabel>Label/Placeholder</label>
 </igx-input-group>
-<!-- the same thing like with the date picker -->
-<igx-simple-combo type="border" [data]="northwindCustomers" displayKey="customerID" (selectionChanging)="singleSelectComboSelectionChanging($event)" class="user-input">
+<!-- the same thing like with the date picker-->
+<igx-simple-combo type="border" [data]="northwindCustomers" displayKey="customerID"  [(ngModel)]="customerObject"  class="user-input">
   <label igxLabel>Label/Placeholder</label>
 </igx-simple-combo>

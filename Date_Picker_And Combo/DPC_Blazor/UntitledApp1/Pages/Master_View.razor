@@ -12,31 +12,59 @@
     <!--<IgbCombo Outlined="true" Data="@_northwindCustomers" Label="Label/Placeholder" DisplayKey="CustomerID" SingleSelect="true" Change="SingleSelectComboChange" class="user-input" master_view-scope></IgbCombo>-->
     <!--<IgbInput Value="@(_dateVar.ToString())" Label="Label/Placeholder" Outlined="true" class="user-input" master_view-scope></IgbInput>-->
 
-
-
-
     <!-- DATE PICKER TWO WAY BINDING-->
-    <IgbDatePicker Label="Date" @bind-Value="_dateVar" SelectedValueChanged="DatePickerSelectedValueChanged" class="date-picker" master_view-scope></IgbDatePicker>
     <IgbDatePicker Label="Date" @bind-Value="_dateVar" class="date-picker" master_view-scope></IgbDatePicker>
-    <p class="typography__body-1 text">
-        @_dateVar
-    </p>
+    <IgbDatePicker Label="Date" @bind-Value="_dateVar2" class="date-picker" master_view-scope></IgbDatePicker>
+    @*<p class="typography__body-1 text">
+        @_datevar
+    </p>*@
 
 
     <!-- COMBO TWO WAY BINDIN3G-->
     <!--<IgbCombo Outlined="true" Data="@_northwindCustomers" @bind-Value="_customerObject" Label="Label/Placeholder" DisplayKey="CustomerID" SingleSelect="true" class="user-input" master_view-scope></IgbCombo>-->
     
-    <IgbCombo Outlined="true" Data="@_northwindCustomers" @bind-Value="_customObjectAsSingleSelectArray" Label="Label/Placeholder" DisplayKey="CustomerID" SingleSelect="true" class="user-input" master_view-scope></IgbCombo>
+
+    @*<IgbCombo Outlined="true" Data="@_northwindCustomers" Label="Label/Placeholder" Value="@(_value != null ? new object[]{_value} : default)" ValueKey="CustomerID" DisplayKey="CustomerID" SingleSelect="true" Change="@(e => _value = (string)e.Detail.NewValue.FirstOrDefault())" Change="SingleSelectComboChange" class="user-input" master_view-scope></IgbCombo>*@
+    <IgbCombo Outlined="true" Data="@_northwindCustomers" Label="Label/Placeholder" Value="@(new object[]{_customerObject})" ValueKey="CustomerID" DisplayKey="CustomerID" SingleSelect="true" class="user-input" master_view-scope></IgbCombo>
+
+    <IgbCombo Outlined="true" Data="@_northwindCustomers" @bind-Value="_customObjectAsSingleSelectArray" Label="Label/Placeholder" DisplayKey="CustomerID" ValueKey="CustomerID" SingleSelect="true" class="user-input" master_view-scope></IgbCombo>
+    <IgbCombo Outlined="true" Data="@_northwindCustomers" @bind-Value="_customObjectAsSingleSelectArray" Label="Label/Placeholder" DisplayKey="CustomerID" ValueKey="CustomerID" SingleSelect="true" class="user-input" master_view-scope></IgbCombo>
+
+
 
     @* <IgbCombo Outlined="true" Data="@_northwindCustomers" Label="Label/Placeholder" DisplayKey="CustomerID" SingleSelect="true" Change="SingleSelectComboChange" class="user-input" master_view-scope></IgbCombo> *@
-    <IgbInput @bind-Value="_customerObjectCustomerId" Label="Label/Placeholder" Outlined="true" class="user-input" master_view-scope></IgbInput>
-    
 
+    @* <IgbCombo Outlined="true" Data="@_northwindCustomers" Label="Label/Placeholder" DisplayKey="CustomerID" SingleSelect="true" Change="SingleSelectComboChange" class="user-input" master_view-scope></IgbCombo>
+    <IgbCombo Outlined="true" Data="@_northwindCustomers" Label="Label/Placeholder" DisplayKey="CustomerID" SingleSelect="true" Change="SingleSelectComboChange" class="user-input" master_view-scope></IgbCombo> *@
+    
+    <IgbInput @bind-Value="_customerObjectCustomerId" Label="Label/Placeholder" Outlined="true" class="user-input" master_view-scope></IgbInput>
+
+    
 
 </div>
 
 @code {
-    private DateTime _dateVar;
+    private DateTime _dateVar
+    {
+        get => _test;
+        set
+        {
+            _test = value;
+        }
+    }
+    private DateTime _dateVar2
+    {
+        get => _test;
+        set
+        {
+            _test = value;
+        }
+    }
+    private DateTime _test;
+
+    private string _value = "ALFKI";
+    private string _stringVar;
+
     private string _customerObjectCustomerId
     {
         get
@@ -47,16 +75,40 @@
         {
             if (_northwindCustomerLookup.TryGetValue(value, out CustomersType customer))
             {
-                _customerObject = customer;
+                _customObjectAsSingleSelectArray = new object[] { customer };
             }
         }
     }
+
+    public object customerValue
+    {
+        get
+        {
+            return _customerObject;
+        }
+    }
+
     private CustomersType _customerObject
     {
-        get => _customObjectAsSingleSelectArray[0] as CustomersType;
+        get => _customObjectAsSingleSelectArray [0] as CustomersType;
+        /*get 
+        {
+            CustomersType _customerObject = new CustomersType();
+            _customerObject.CustomerID = "Cell 2.1";
+            _customerObject.CompanyName = "Cell 2.1";
+
+            return _customerObject;
+        }*/
+
         set => _customObjectAsSingleSelectArray[0] = value;
+        /*set
+        {
+            CustomersType _customerObject = new CustomersType();
+            _customerObject.CustomerID = "Cell 2.1";
+        }*/
     }
     private object[] _customObjectAsSingleSelectArray = new object[1];
+   
 
     private List<CustomersType> _northwindCustomers = new();
     private Dictionary<string, CustomersType> _northwindCustomerLookup = new();
@@ -67,9 +119,13 @@
         this._dateVar = (DateTime)e.NewValue;
     }
 
-    public void SingleSelectComboChange(IgbComboChangeEventArgs e)
+    /*public void SingleSelectComboChange(IgbComboChangeEventArgs e)
     {
         this._customerObject = (CustomersType)e.Detail.NewValue.FirstOrDefault();
+    }*/
+    public void SingleSelectComboChange(IgbComboChangeEventArgs e)
+    {
+        this._stringVar = (string)e.Detail.NewValue.FirstOrDefault();
     }
 
     protected override async Task OnInitializedAsync()
