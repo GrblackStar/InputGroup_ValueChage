@@ -3,10 +3,10 @@
 
 <div class="row-layout master-view-container">
     <div class="column-layout group">
-        <IgbCheckbox LabelPosition="CheckboxBaseLabelPosition.After" Checked="@_boolVar" class="user-input" master_view-scope>
+        <IgbCheckbox LabelPosition="CheckboxBaseLabelPosition.After" @bind-Checked="@_boolVar" class="user-input" master_view-scope>
             Label
         </IgbCheckbox>
-        <IgbSwitch Checked="@_boolVar" class="user-input" master_view-scope>
+        <IgbSwitch @bind-Checked="@_boolVar" class="user-input" master_view-scope>
             Label
         </IgbSwitch>
         <IgbRadioGroup Alignment="RadioGroupAlignment.Horizontal" class="user-input" master_view-scope>
@@ -20,15 +20,14 @@
                 Label
             </IgbRadio>
         </IgbRadioGroup>
-        <IgbSelect Outlined="true" Label="Label/Placeholder" Value="@(_stringVar ?? default)" class="select" master_view-scope>
+        <IgbSelect Outlined="true" Label="Label/Placeholder" @bind-Value="@_stringVar" class="select" master_view-scope>
             <IgbSelectItem Value="Option">
                 Option
             </IgbSelectItem>
         </IgbSelect>
-        <IgbCalendar HideHeader="false" class="calendar" master_view-scope></IgbCalendar>
-        <IgbSlider Value="@(_numVar)" Min="0" Max="100" Step="10" DiscreteTrack="true" class="slider" master_view-scope></IgbSlider>
-        <span class="textarea">Textarea not yet available in Blazor</span>
-        <IgbDatePicker Label="Date" Value="@(_dateVar)" class="date-picker" master_view-scope></IgbDatePicker>
+        <IgbCalendar HideHeader="false" @bind-Value="@_dateVar" class="calendar" master_view-scope></IgbCalendar>
+        <IgbSlider @bind-Value="@_numVar" Min="0" Max="100" Step="10" DiscreteTrack="true" class="slider" master_view-scope></IgbSlider>
+        <IgbDatePicker Label="Date" @bind-Value="@_dateVar" class="date-picker" master_view-scope></IgbDatePicker>
     </div>
     <div class="column-layout group_1"></div>
     <div class="column-layout group_2">

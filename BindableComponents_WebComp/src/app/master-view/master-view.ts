@@ -97,14 +97,28 @@ export default class MasterView extends LitElement {
   @state()
   private numVar?: number;
 
+
+  public InputDate(event: any) {
+	  this.dateVar = event.detail;
+  }
+  public Inputstring(event: any) {
+	  this.stringVar = event.detail as string;
+  }
+  public InputBoolsomething(event: any) {
+	  this.boolVar = event.detail;
+  }
+  public InputNumber(event: any) {
+	  this.numVar = event.detail as number;
+  }
+
   render() {
     return html`
       <link rel='stylesheet' href='../../ig-theme.css'>
       <div class="column-layout group">
-        <igc-checkbox labelPosition="after" checked="${this.boolVar}" class="user-input">
+        <igc-checkbox labelPosition="after" @igcInput="${this.InputBoolsomething}"  class="user-input">
           Label
         </igc-checkbox>
-        <igc-switch checked="${this.boolVar}" class="user-input">
+        <igc-switch @igcInput="${this.InputBoolsomething}" class="user-input">
           Label
         </igc-switch>
         <igc-radio-group alignment="horizontal" class="user-input">
@@ -118,15 +132,17 @@ export default class MasterView extends LitElement {
             Label
           </igc-radio>
         </igc-radio-group>
-        <igc-select ?outlined="${true}" label="Label/Placeholder" value="${this.stringVar!}" class="select">
+
+
+
+        <igc-select ?outlined="${true}" label="Label/Placeholder" @igcInput="${this.Inputstring}" class="select">
           <igc-select-item value="Option">
             Option
           </igc-select-item>
         </igc-select>
-        <igc-calendar ?hide-header="${false}" header-orientation="horizontal" class="calendar"></igc-calendar>
-        <igc-slider value="${this.numVar!}" min="0" max="100" step="10" ?discrete-track="${true}" class="slider"></igc-slider>
-        <span class="textarea">Textarea not yet available in WebComponents</span>
-        <span class="date-picker">DatePicker not yet available in WebComponents</span>
+        <igc-calendar ?hide-header="${false}" @igcInput="${this.InputDate}" header-orientation="horizontal" class="calendar"></igc-calendar>
+        <igc-slider @igcInput="${this.InputNumber}" min="0" max="100" step="10" ?discrete-track="${true}" class="slider"></igc-slider>
+
       </div>
       <div class="column-layout group_1"></div>
       <div class="column-layout group_2">
