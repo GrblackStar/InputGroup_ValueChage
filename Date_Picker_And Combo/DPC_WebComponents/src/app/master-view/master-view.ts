@@ -59,7 +59,8 @@ export default class MasterView extends LitElement {
   render() {
     return html`
       <link rel='stylesheet' href='../../ig-theme.css'>
-      <igc-combo ?outlined="${true}" .data="${this.northwindCustomers}" label="Label/Placeholder" display-key="customerID" ?single-select="${true}" @igcChange="${this.singleSelectComboIgcChange}" class="user-input"></igc-combo>
+      <igc-combo ?outlined="${true}" .data="${this.northwindCustomers}" label="Label/Placeholder" display-key="customerID" ?single-select="${true}" @igcChange="${this.singleSelectComboIgcChange}" value="${this.customerObject}" class="user-input"></igc-combo>
+      <igc-combo ?outlined="${true}" .data="${this.northwindCustomers}" label="Label/Placeholder" display-key="customerID" ?single-select="${true}" @igcChange="${this.singleSelectComboIgcChange}" value="${this.customerObject}" class="user-input"></igc-combo>
       <igc-input value="${this.customerObject?.customerID}" label="Label/Placeholder" ?outlined="${true}" class="user-input"></igc-input>
     `;
   }

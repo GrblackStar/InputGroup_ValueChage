@@ -115,10 +115,10 @@ export default class MasterView extends LitElement {
     return html`
       <link rel='stylesheet' href='../../ig-theme.css'>
       <div class="column-layout group">
-        <igc-checkbox labelPosition="after" @igcInput="${this.InputBoolsomething}"  class="user-input">
+        <igc-checkbox labelPosition="after" checked="${this.boolVar}" @igcChange="${this.InputBoolsomething}"  class="user-input">
           Label
         </igc-checkbox>
-        <igc-switch @igcInput="${this.InputBoolsomething}" class="user-input">
+        <igc-switch checked="${this.boolVar}" @igcChange="${this.InputBoolsomething}" class="user-input">
           Label
         </igc-switch>
         <igc-radio-group alignment="horizontal" class="user-input">
@@ -135,12 +135,14 @@ export default class MasterView extends LitElement {
 
 
 
-        <igc-select ?outlined="${true}" label="Label/Placeholder" @igcInput="${this.Inputstring}" class="select">
+        <igc-select ?outlined="${true}" label="Label/Placeholder" @igcChange="${this.Inputstring}" class="select">
           <igc-select-item value="Option">
             Option
           </igc-select-item>
         </igc-select>
-        <igc-calendar ?hide-header="${false}" @igcInput="${this.InputDate}" header-orientation="horizontal" class="calendar"></igc-calendar>
+        <igc-calendar ?hide-header="${false}" value="${this.dateVar}" @igcChange="${this.InputDate}" header-orientation="horizontal" class="calendar"></igc-calendar>
+        <igc-calendar ?hide-header="${false}" value="${this.dateVar}" @igcChange="${this.InputDate}" header-orientation="horizontal" class="calendar"></igc-calendar>
+        
         <igc-slider @igcInput="${this.InputNumber}" min="0" max="100" step="10" ?discrete-track="${true}" class="slider"></igc-slider>
 
       </div>
