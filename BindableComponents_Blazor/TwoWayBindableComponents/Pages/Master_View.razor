@@ -1,0 +1,67 @@
+@page "/"
+@page "/master_view"
+
+<div class="row-layout master-view-container">
+    <div class="column-layout group">
+        <IgbCheckbox LabelPosition="CheckboxBaseLabelPosition.After" Checked="@_boolVar" class="user-input" master_view-scope>
+            Label
+        </IgbCheckbox>
+        <IgbSwitch Checked="@_boolVar" class="user-input" master_view-scope>
+            Label
+        </IgbSwitch>
+        <IgbRadioGroup Alignment="RadioGroupAlignment.Horizontal" class="user-input" master_view-scope>
+            <IgbRadio Value="1" class="radio" master_view-scope>
+                Label
+            </IgbRadio>
+            <IgbRadio Value="2" class="radio" master_view-scope>
+                Label
+            </IgbRadio>
+            <IgbRadio Value="3" class="radio" master_view-scope>
+                Label
+            </IgbRadio>
+        </IgbRadioGroup>
+        <IgbSelect Outlined="true" Label="Label/Placeholder" Value="@(_stringVar ?? default)" class="select" master_view-scope>
+            <IgbSelectItem Value="Option">
+                Option
+            </IgbSelectItem>
+        </IgbSelect>
+        <IgbCalendar HideHeader="false" class="calendar" master_view-scope></IgbCalendar>
+        <IgbSlider Value="@(_numVar)" Min="0" Max="100" Step="10" DiscreteTrack="true" class="slider" master_view-scope></IgbSlider>
+        <span class="textarea">Textarea not yet available in Blazor</span>
+        <IgbDatePicker Label="Date" Value="@(_dateVar)" class="date-picker" master_view-scope></IgbDatePicker>
+    </div>
+    <div class="column-layout group_1"></div>
+    <div class="column-layout group_2">
+        <p class="typography__body-1 text">
+            String var
+        </p>
+        <p class="typography__body-1 text_1">
+            @_stringVar
+        </p>
+        <p class="typography__body-1 text">
+            Date var
+        </p>
+        <p class="typography__body-1 text_1">
+            @_dateVar
+        </p>
+        <p class="typography__body-1 text">
+            Bool var
+        </p>
+        <p class="typography__body-1 text_1">
+            @_boolVar.ToString()
+        </p>
+        <p class="typography__body-1 text">
+            Num var
+        </p>
+        <p class="typography__body-1 text_1">
+            @_numVar.ToString()
+        </p>
+    </div>
+</div>
+
+@code {
+    private DateTime _dateVar;
+    private string _stringVar;
+    private bool _boolVar = false;
+    private double _numVar;
+}
