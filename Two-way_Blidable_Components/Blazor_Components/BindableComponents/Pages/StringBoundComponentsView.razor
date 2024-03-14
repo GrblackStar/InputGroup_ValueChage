@@ -38,7 +38,8 @@
                         <p class="typography__body-1 text_3">
                             Input group
                         </p>
-                        <IgbInput Value="@(_stringVariable ?? default)" Label="Label/Placeholder" Outlined="true" class="input" string_bound_components_view-scope></IgbInput>
+                        <IgbInput @bind-Value="_stringVariable" Label="Label/Placeholder" Outlined="true" class="input" string_bound_components_view-scope></IgbInput>
+                        <IgbInput @bind-Value="_stringVariable" Label="Label/Placeholder" Outlined="true" class="input" string_bound_components_view-scope></IgbInput>
                         <p class="typography__body-1 text_4">
                             Text Area
                         </p>
@@ -49,12 +50,12 @@
                             <p class="typography__body-1 text_3">
                                 Select:
                             </p>
-                            <IgbSelect Outlined="true" Label="Label/Placeholder" class="select" string_bound_components_view-scope>
+                            <IgbSelect Outlined="true" Label="Label/Placeholder" @bind-Value="@_stringVariable" class="select" string_bound_components_view-scope>
                                 <IgbSelectItem Value="Option">
                                     Option
                                 </IgbSelectItem>
                             </IgbSelect>
-                            <IgbSelect Outlined="true" Label="Label/Placeholder" class="select_1" string_bound_components_view-scope>
+                            <IgbSelect Outlined="true" Label="Label/Placeholder" @bind-Value="@_stringVariable" class="select_1" string_bound_components_view-scope>
                                 <IgbSelectItem Value="Option">
                                     Option
                                 </IgbSelectItem>

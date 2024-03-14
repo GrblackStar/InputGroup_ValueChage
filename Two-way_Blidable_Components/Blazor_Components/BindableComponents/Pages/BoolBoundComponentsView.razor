@@ -34,19 +34,19 @@
                 </div>
                 <div class="row-layout group_7">
                     <div class="column-layout group_8">
-                        <IgbSwitch class="switch" bool_bound_components_view-scope>
-                            @_boolVariable.ToString()
+                        <IgbSwitch @bind-Checked="@_boolVariable" class="switch" bool_bound_components_view-scope>
+                            Label
                         </IgbSwitch>
-                        <IgbSwitch class="user-input" bool_bound_components_view-scope>
-                            @_boolVariable.ToString()
+                        <IgbSwitch @bind-Checked="@_boolVariable" class="user-input" bool_bound_components_view-scope>
+                            Label
                         </IgbSwitch>
                     </div>
                     <div class="column-layout group_9">
-                        <IgbCheckbox LabelPosition="CheckboxBaseLabelPosition.After" class="checkbox" bool_bound_components_view-scope>
-                            @_boolVariable.ToString()
+                        <IgbCheckbox @bind-Checked="@_boolVariable" LabelPosition="CheckboxBaseLabelPosition.After" class="checkbox" bool_bound_components_view-scope>
+                            Label
                         </IgbCheckbox>
-                        <IgbCheckbox LabelPosition="CheckboxBaseLabelPosition.After" class="user-input" bool_bound_components_view-scope>
-                            @_boolVariable.ToString()
+                        <IgbCheckbox @bind-Checked="@_boolVariable" LabelPosition="CheckboxBaseLabelPosition.After" class="user-input" bool_bound_components_view-scope>
+                            Label
                         </IgbCheckbox>
                     </div>
                 </div>

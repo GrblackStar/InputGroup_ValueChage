@@ -35,14 +35,14 @@
                 <div class="row-layout group_7">
                     <div class="column-layout group">
                         <div class="column-layout group_8">
-                            <IgbInput DisplayType="InputType.Number" Value="@(_numVariable ?? default)" Label="Duration" Outlined="true" class="input" num_bound_components_view-scope></IgbInput>
+                            <IgbRating @bind-Value="_numVariable" Size="SizableComponentSize.Large" class="rating" num_bound_components_view-scope></IgbRating>
+                            <IgbRating @bind-Value="_numVariable" Size="SizableComponentSize.Large" class="rating_1" num_bound_components_view-scope></IgbRating>
                         </div>
-                        <IgbRating Value="@(_numVariable ?? default)" Size="SizableComponentSize.Large" class="rating" num_bound_components_view-scope></IgbRating>
-                        <IgbRating Value="@(_numVariable ?? default)" Size="SizableComponentSize.Large" class="rating_1" num_bound_components_view-scope></IgbRating>
+                        
                     </div>
                     <div class="column-layout group_9">
-                        <IgbSlider Value="@(_numVariable ?? default)" Min="0" Max="100" Step="10" DiscreteTrack="true" class="slider" num_bound_components_view-scope></IgbSlider>
-                        <IgbSlider Value="@(_numVariable ?? default)" Min="0" Max="100" Step="10" DiscreteTrack="true" class="slider" num_bound_components_view-scope></IgbSlider>
+                        <IgbSlider @bind-Value="_numVariable" Min="0" Max="100" Step="10" DiscreteTrack="true" class="slider" num_bound_components_view-scope></IgbSlider>
+                        <IgbSlider @bind-Value="_numVariable" Min="0" Max="100" Step="10" DiscreteTrack="true" class="slider" num_bound_components_view-scope></IgbSlider>
                     </div>
                 </div>
             </div>

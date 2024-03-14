@@ -28,7 +28,7 @@
                     For Simple Combo
                 </p>
                 <p class="typography__body-1 text_1">
-                    @_categoryObject?.Name.ToString()
+                    @*@_categoryObject?.Name.ToString()*@
                 </p>
                 <p class="typography__body-1 text_2">
                     For Combo
@@ -53,8 +53,8 @@
                         <p class="typography__body-1 text_4">
                             Combo:
                         </p>
-                        <IgbCombo Outlined="true" Label="Label/Placeholder" Value="@_customerOutputArray.ToString()" DisplayKey="CustomerID" autoFocusSearch="true" DisableFiltering="true" Data="@_customerArray" class="user-input" master_view-scope></IgbCombo>
-                        <IgbCombo Outlined="true" Label="Label/Placeholder" Value="@_customerOutputArray.ToString()" DisplayKey="CustomerID" autoFocusSearch="true" DisableFiltering="true" Data="@_customerArray" class="user-input_1" master_view-scope></IgbCombo>
+                        <IgbCombo Outlined="true" Label="Label/Placeholder" Value="@_customerOutputArray.ToArray()" DisplayKey="CustomerID" autoFocusSearch="true" DisableFiltering="true" Data="@_customerArray" class="user-input" master_view-scope></IgbCombo>
+                        <IgbCombo Outlined="true" Label="Label/Placeholder" Value="@_customerOutputArray.ToArray()" DisplayKey="CustomerID" autoFocusSearch="true" DisableFiltering="true" Data="@_customerArray" class="user-input_1" master_view-scope></IgbCombo>
                     </div>
                 </div>
             </div>
@@ -64,7 +64,7 @@
 
 @code {
     private List<CategoriesType> _categoryArray = new();
-    private CategoriesType _categoryObject;
+    private CategoriesType _categoryObject = new();
     private List<CustomersType> _customerArray = new();
     private List<CustomersType> _customerOutputArray = new();
 
