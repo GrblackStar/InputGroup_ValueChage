@@ -6,7 +6,8 @@
     Label
   </igx-switch>
 
-
+  <igc-rating [(ngModel)]="ratingNum" size="large" class="user-input"></igc-rating>
+	
 
   <igx-radio-group class="user-input">
     <igx-radio value="1" class="radio">
@@ -48,8 +49,16 @@
 
 
 
-<div class="column-layout group_1"></div>
+<div class="column-layout group_1">
+
+</div>
 <div class="column-layout group_2">
+  <p class="text">
+    rating var
+  </p>
+  <p class="text_1">
+    {{ ratingNum }}
+  </p>
   <p class="text">
     String var
   </p>

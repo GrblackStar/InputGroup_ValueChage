@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { defineComponents, IgcRatingComponent } from 'igniteui-webcomponents';
+
+defineComponents(IgcRatingComponent);
 
 @Component({
   selector: 'app-master-view',
@@ -10,4 +13,5 @@ export class MasterViewComponent {
   public stringVar?: string;
   public boolVar: boolean = false;
   public numVar?: number;
+  public ratingNum?: number;
 }
