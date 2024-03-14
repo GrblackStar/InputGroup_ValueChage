@@ -1,0 +1,47 @@
+<div class="column-layout group">
+  <div class="row-layout group_1">
+    <h4 class="h4">
+      Component, bound to NUMERIC variable
+    </h4>
+    <button igxButton="contained" igxRipple routerLink="/bool-bound-components-view" class="button">
+      Previous
+    </button>
+    <button igxButton="contained" igxRipple routerLink="/date-bound-components-view" class="button_1">
+      Next
+    </button>
+  </div>
+  <div class="row-layout group_2">
+    <div class="column-layout group_3">
+      <p class="text">
+        Value of the variable:
+      </p>
+      <p class="text_1">
+        {{ numVariable }}
+      </p>
+    </div>
+    <div class="column-layout group_4"></div>
+    <div class="column-layout group_5">
+      <div class="row-layout group_6">
+        <p class="text_2">
+          Two way bound components
+        </p>
+      </div>
+      <div class="row-layout group_7">
+        <div class="column-layout group">
+          <div class="column-layout group_8">
+            <igx-input-group type="border" class="input">
+              <input type="number" [(ngModel)]="numVariable!" igxInput />
+              <label igxLabel>Duration</label>
+            </igx-input-group>
+          </div>
+          <igc-rating [(ngModel)]="numVariable!" size="large" class="rating"></igc-rating>
+          <igc-rating [(ngModel)]="numVariable!" size="large" class="rating_1"></igc-rating>
+        </div>
+        <div class="column-layout group_9">
+          <igx-slider [(ngModel)]="numVariable!" [minValue]="0" [maxValue]="100" [step]="10" [secondaryTickLabels]="false" class="slider"></igx-slider>
+          <igx-slider [(ngModel)]="numVariable!" [minValue]="0" [maxValue]="100" [step]="10" [secondaryTickLabels]="false" class="slider"></igx-slider>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

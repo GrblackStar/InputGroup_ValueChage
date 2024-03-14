@@ -1,0 +1,189 @@
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+}
+.column-layout {
+  display: flex;
+  flex-direction: column;
+}
+.group {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  position: relative;
+  min-width: 50px;
+  min-height: 50px;
+}
+.row-layout {
+  display: flex;
+}
+.group_1 {
+  background-color: hsla(var(--ig-gray-200));
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  position: relative;
+  width: 1436px;
+  height: 96px;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 1436px;
+  max-height: 96px;
+}
+.group_2 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  position: relative;
+  width: 1437px;
+  height: 803px;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 1437px;
+  max-height: 803px;
+}
+.group_3 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  position: relative;
+  width: 334px;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 334px;
+}
+.group_4 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  position: relative;
+  width: 138px;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 138px;
+}
+.group_5 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  position: relative;
+  width: 962px;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 962px;
+}
+.group_6 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  position: relative;
+  height: 83px;
+  min-width: 50px;
+  min-height: 50px;
+  max-height: 83px;
+}
+.group_7 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  position: relative;
+  height: 714px;
+  min-width: 50px;
+  min-height: 50px;
+  max-height: 714px;
+}
+.group_8 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  position: relative;
+  width: 449px;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 449px;
+}
+.group_9 {
+  justify-content: flex-start;
+  align-items: stretch;
+  align-content: flex-start;
+  position: relative;
+  width: 415px;
+  height: 349px;
+  min-width: 50px;
+  min-height: 50px;
+  max-width: 415px;
+  max-height: 349px;
+}
+.h4 {
+  margin: 20px 0 0 20px;
+  width: 976px;
+  height: max-content;
+  min-width: min-content;
+  max-width: 976px;
+}
+.text {
+  margin: 20px;
+  height: max-content;
+  min-width: min-content;
+}
+.text_1 {
+  margin: 0 0 0 20px;
+  height: max-content;
+  min-width: min-content;
+}
+.text_2 {
+  width: 991px;
+  height: max-content;
+  min-width: min-content;
+  max-width: 991px;
+}
+.text_3 {
+  margin: 0 0 30px;
+  height: max-content;
+  min-width: min-content;
+}
+.text_4 {
+  margin: 50px 0 30px;
+  height: max-content;
+  min-width: min-content;
+}
+.textarea {
+  margin: 0 50px 0 0;
+  height: max-content;
+  min-width: min-content;
+}
+.button {
+  margin: 30px 70px 0 0;
+  width: 153px;
+  height: max-content;
+  min-width: 153px;
+  max-width: 153px;
+  flex-shrink: 0;
+}
+.button_1 {
+  margin: 30px 0 0;
+  width: 153px;
+  height: max-content;
+  min-width: 153px;
+  max-width: 153px;
+  flex-shrink: 0;
+}
+.input {
+  margin: 0 50px 0 0;
+  width: 336px;
+  height: max-content;
+  min-width: min-content;
+  max-width: 336px;
+}
+.select {
+  height: max-content;
+  min-width: min-content;
+}
+.select_1 {
+  margin: 50px 0 0;
+  height: max-content;
+  min-width: min-content;
+}

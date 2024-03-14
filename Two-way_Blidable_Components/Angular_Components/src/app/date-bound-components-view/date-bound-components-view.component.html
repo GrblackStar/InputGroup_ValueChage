@@ -1,0 +1,44 @@
+<div class="column-layout group">
+  <div class="row-layout group_1">
+    <h4 class="h4">
+      Component, bound to DATE variable
+    </h4>
+    <button igxButton="contained" igxRipple routerLink="/num-bound-components-view" class="button">
+      Previous
+    </button>
+    <button igxButton="contained" igxRipple routerLink="/master-view" class="button_1">
+      Next
+    </button>
+  </div>
+  <div class="row-layout group_2">
+    <div class="column-layout group_3">
+      <p class="text">
+        Value of the variable:
+      </p>
+      <p class="text_1">
+        {{ dateVariable }}
+      </p>
+    </div>
+    <div class="column-layout group_4"></div>
+    <div class="column-layout group_5">
+      <div class="row-layout group_6">
+        <p class="text_2">
+          Two way bound components
+        </p>
+      </div>
+      <div class="row-layout group_7">
+        <div class="column-layout group_8">
+          <igx-date-picker [(ngModel)]="dateVariable!" type="border" mode="dialog" class="date-picker">
+            <label igxLabel>Date</label>
+          </igx-date-picker>
+        </div>
+        <div class="column-layout group_9">
+          <igx-calendar [(ngModel)]="dateVariable!" [hasHeader]="true" [vertical]="false" class="calendar"></igx-calendar>
+        </div>
+        <div class="column-layout group_10">
+          <igx-calendar [(ngModel)]="dateVariable!" [hasHeader]="true" [vertical]="false" class="calendar"></igx-calendar>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

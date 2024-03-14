@@ -1,0 +1,82 @@
+@page "/master_view"
+@using Northwind
+@using Models.Northwind
+@inject NavigationManager NavigationManager
+@inject INorthwindService NorthwindService
+
+<div class="row-layout master-view-container">
+    <div class="column-layout group">
+        <div class="row-layout group_1">
+            <h4 class="h4">
+                Component, bound to OBJECT variable
+            </h4>
+            <IgbButton Size="SizableComponentSize.Large" @onclick="@(e => Navigate("/date-bound-components-view"))" class="button" master_view-scope>
+                Previous
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+            <IgbButton Size="SizableComponentSize.Large" @onclick="@(e => Navigate("/string-bound-components-view"))" class="button_1" master_view-scope>
+                Next
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+        </div>
+        <div class="row-layout group_2">
+            <div class="column-layout group_3">
+                <p class="typography__body-1 text">
+                    Value of the variable:
+                </p>
+                <p class="typography__body-1 text_1">
+                    For Simple Combo
+                </p>
+                <p class="typography__body-1 text_1">
+                    @_categoryObject?.Name.ToString()
+                </p>
+                <p class="typography__body-1 text_2">
+                    For Combo
+                </p>
+            </div>
+            <div class="column-layout group_4"></div>
+            <div class="column-layout group_5">
+                <div class="row-layout group_6">
+                    <p class="typography__body-1 text_3">
+                        Two way bound components
+                    </p>
+                </div>
+                <div class="row-layout group_7">
+                    <div class="column-layout group_8">
+                        <p class="typography__body-1 text_4">
+                            Simple Combo:
+                        </p>
+                        <IgbCombo Outlined="true" Label="Label/Placeholder" Value="@(_categoryObject.ToString() != null ? new object[]{_categoryObject.ToString()} : default)" DisplayKey="Description" SingleSelect="true" Data="@_categoryArray" class="user-input" master_view-scope></IgbCombo>
+                        <IgbCombo Outlined="true" Label="Label/Placeholder" Value="@(_categoryObject.ToString() != null ? new object[]{_categoryObject.ToString()} : default)" DisplayKey="Description" SingleSelect="true" Data="@_categoryArray" class="user-input_1" master_view-scope></IgbCombo>
+                    </div>
+                    <div class="column-layout group_9">
+                        <p class="typography__body-1 text_4">
+                            Combo:
+                        </p>
+                        <IgbCombo Outlined="true" Label="Label/Placeholder" Value="@_customerOutputArray.ToString()" DisplayKey="CustomerID" autoFocusSearch="true" DisableFiltering="true" Data="@_customerArray" class="user-input" master_view-scope></IgbCombo>
+                        <IgbCombo Outlined="true" Label="Label/Placeholder" Value="@_customerOutputArray.ToString()" DisplayKey="CustomerID" autoFocusSearch="true" DisableFiltering="true" Data="@_customerArray" class="user-input_1" master_view-scope></IgbCombo>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private List<CategoriesType> _categoryArray = new();
+    private CategoriesType _categoryObject;
+    private List<CustomersType> _customerArray = new();
+    private List<CustomersType> _customerOutputArray = new();
+
+    public void Navigate(string path)
+    {
+        NavigationManager.NavigateTo(path);
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        _categoryArray = await NorthwindService.GetCategories();
+        _customerArray = await NorthwindService.GetCustomers();
+        await base.OnInitializedAsync();
+    }
+}

@@ -1,0 +1,65 @@
+@page "/bool-bound-components-view"
+@inject NavigationManager NavigationManager
+
+<div class="row-layout bool-bound-components-view-container">
+    <div class="column-layout group">
+        <div class="row-layout group_1">
+            <h4 class="h4">
+                Component, bound to BOOL variable
+            </h4>
+            <IgbButton Size="SizableComponentSize.Large" @onclick="@(e => Navigate("/string-bound-components-view"))" class="button" bool_bound_components_view-scope>
+                Previous
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+            <IgbButton Size="SizableComponentSize.Large" @onclick="@(e => Navigate("/num-bound-components-view"))" class="button_1" bool_bound_components_view-scope>
+                Next
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+        </div>
+        <div class="row-layout group_2">
+            <div class="column-layout group_3">
+                <p class="typography__body-1 text">
+                    Value of the variable:
+                </p>
+                <p class="typography__body-1 text_1">
+                    @_boolVariable.ToString()
+                </p>
+            </div>
+            <div class="column-layout group_4"></div>
+            <div class="column-layout group_5">
+                <div class="row-layout group_6">
+                    <p class="typography__body-1 text_2">
+                        Two way bound components
+                    </p>
+                </div>
+                <div class="row-layout group_7">
+                    <div class="column-layout group_8">
+                        <IgbSwitch class="switch" bool_bound_components_view-scope>
+                            @_boolVariable.ToString()
+                        </IgbSwitch>
+                        <IgbSwitch class="user-input" bool_bound_components_view-scope>
+                            @_boolVariable.ToString()
+                        </IgbSwitch>
+                    </div>
+                    <div class="column-layout group_9">
+                        <IgbCheckbox LabelPosition="CheckboxBaseLabelPosition.After" class="checkbox" bool_bound_components_view-scope>
+                            @_boolVariable.ToString()
+                        </IgbCheckbox>
+                        <IgbCheckbox LabelPosition="CheckboxBaseLabelPosition.After" class="user-input" bool_bound_components_view-scope>
+                            @_boolVariable.ToString()
+                        </IgbCheckbox>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private bool _boolVariable = false;
+
+    public void Navigate(string path)
+    {
+        NavigationManager.NavigateTo(path);
+    }
+}

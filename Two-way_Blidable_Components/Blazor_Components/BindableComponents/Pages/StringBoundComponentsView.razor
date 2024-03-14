@@ -1,0 +1,77 @@
+@page "/"
+@page "/string-bound-components-view"
+@inject NavigationManager NavigationManager
+
+<div class="row-layout string-bound-components-view-container">
+    <div class="column-layout group">
+        <div class="row-layout group_1">
+            <h4 class="h4">
+                Component, bound to STRING variable
+            </h4>
+            <IgbButton Size="SizableComponentSize.Large" @onclick="@(e => Navigate("/date-bound-components-view"))" class="button" string_bound_components_view-scope>
+                Previous
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+            <IgbButton Size="SizableComponentSize.Large" @onclick="@(e => Navigate("/bool-bound-components-view"))" class="button_1" string_bound_components_view-scope>
+                Next
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+        </div>
+        <div class="row-layout group_2">
+            <div class="column-layout group_3">
+                <p class="typography__body-1 text">
+                    Value of the variable:
+                </p>
+                <p class="typography__body-1 text_1">
+                    @_stringVariable
+                </p>
+            </div>
+            <div class="column-layout group_4"></div>
+            <div class="column-layout group_5">
+                <div class="row-layout group_6">
+                    <p class="typography__body-1 text_2">
+                        Two way bound components
+                    </p>
+                </div>
+                <div class="row-layout group_7">
+                    <div class="column-layout group">
+                        <p class="typography__body-1 text_3">
+                            Input group
+                        </p>
+                        <IgbInput Value="@(_stringVariable ?? default)" Label="Label/Placeholder" Outlined="true" class="input" string_bound_components_view-scope></IgbInput>
+                        <p class="typography__body-1 text_4">
+                            Text Area
+                        </p>
+                        <span class="textarea">Textarea not yet available in Blazor</span>
+                    </div>
+                    <div class="column-layout group_8">
+                        <div class="column-layout group_9">
+                            <p class="typography__body-1 text_3">
+                                Select:
+                            </p>
+                            <IgbSelect Outlined="true" Label="Label/Placeholder" class="select" string_bound_components_view-scope>
+                                <IgbSelectItem Value="Option">
+                                    Option
+                                </IgbSelectItem>
+                            </IgbSelect>
+                            <IgbSelect Outlined="true" Label="Label/Placeholder" class="select_1" string_bound_components_view-scope>
+                                <IgbSelectItem Value="Option">
+                                    Option
+                                </IgbSelectItem>
+                            </IgbSelect>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private string _stringVariable;
+
+    public void Navigate(string path)
+    {
+        NavigationManager.NavigateTo(path);
+    }
+}

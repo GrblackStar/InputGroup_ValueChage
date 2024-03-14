@@ -1,0 +1,68 @@
+<div class="column-layout group">
+  <div class="row-layout group_1">
+    <h4 class="h4">
+      Component, bound to STRING variable
+    </h4>
+    <button igxButton="contained" igxRipple routerLink="/master-view" class="button">
+      Previous
+    </button>
+    <button igxButton="contained" igxRipple routerLink="/bool-bound-components-view" class="button_1">
+      Next
+    </button>
+  </div>
+  <div class="row-layout group_2">
+    <div class="column-layout group_3">
+      <p class="text">
+        Value of the variable:
+      </p>
+      <p class="text_1">
+        {{ stringVariable }}
+      </p>
+    </div>
+    <div class="column-layout group_4"></div>
+    <div class="column-layout group_5">
+      <div class="row-layout group_6">
+        <p class="text_2">
+          Two way bound components
+        </p>
+      </div>
+      <div class="row-layout group_7">
+        <div class="column-layout group">
+          <p class="text_3">
+            Input group
+          </p>
+          <igx-input-group type="border" class="input">
+            <input type="text" [(ngModel)]="stringVariable!" igxInput />
+            <label igxLabel>Label/Placeholder</label>
+          </igx-input-group>
+          <p class="text_4">
+            Text Area
+          </p>
+          <igx-input-group type="border" class="ig-typography__body-1 textarea">
+            <label igxLabel>Label/Placeholder</label>
+            <textarea [(ngModel)]="stringVariable!" igxInput></textarea>
+          </igx-input-group>
+        </div>
+        <div class="column-layout group_8">
+          <div class="column-layout group_9">
+            <p class="text_3">
+              Select:
+            </p>
+            <igx-select type="border" [(ngModel)]="stringVariable!" class="select">
+              <igx-select-item value="Option">
+                Option
+              </igx-select-item>
+              <label igxLabel>Label/Placeholder</label>
+            </igx-select>
+            <igx-select type="border" [(ngModel)]="stringVariable!" class="select_1">
+              <igx-select-item value="Option">
+                Option
+              </igx-select-item>
+              <label igxLabel>Label/Placeholder</label>
+            </igx-select>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

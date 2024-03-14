@@ -1,0 +1,60 @@
+@page "/num-bound-components-view"
+@inject NavigationManager NavigationManager
+
+<div class="row-layout num-bound-components-view-container">
+    <div class="column-layout group">
+        <div class="row-layout group_1">
+            <h4 class="h4">
+                Component, bound to NUMERIC variable
+            </h4>
+            <IgbButton Size="SizableComponentSize.Large" @onclick="@(e => Navigate("/bool-bound-components-view"))" class="button" num_bound_components_view-scope>
+                Previous
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+            <IgbButton Size="SizableComponentSize.Large" @onclick="@(e => Navigate("/date-bound-components-view"))" class="button_1" num_bound_components_view-scope>
+                Next
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+        </div>
+        <div class="row-layout group_2">
+            <div class="column-layout group_3">
+                <p class="typography__body-1 text">
+                    Value of the variable:
+                </p>
+                <p class="typography__body-1 text_1">
+                    @_numVariable.ToString()
+                </p>
+            </div>
+            <div class="column-layout group_4"></div>
+            <div class="column-layout group_5">
+                <div class="row-layout group_6">
+                    <p class="typography__body-1 text_2">
+                        Two way bound components
+                    </p>
+                </div>
+                <div class="row-layout group_7">
+                    <div class="column-layout group">
+                        <div class="column-layout group_8">
+                            <IgbInput DisplayType="InputType.Number" Value="@(_numVariable ?? default)" Label="Duration" Outlined="true" class="input" num_bound_components_view-scope></IgbInput>
+                        </div>
+                        <IgbRating Value="@(_numVariable ?? default)" Size="SizableComponentSize.Large" class="rating" num_bound_components_view-scope></IgbRating>
+                        <IgbRating Value="@(_numVariable ?? default)" Size="SizableComponentSize.Large" class="rating_1" num_bound_components_view-scope></IgbRating>
+                    </div>
+                    <div class="column-layout group_9">
+                        <IgbSlider Value="@(_numVariable ?? default)" Min="0" Max="100" Step="10" DiscreteTrack="true" class="slider" num_bound_components_view-scope></IgbSlider>
+                        <IgbSlider Value="@(_numVariable ?? default)" Min="0" Max="100" Step="10" DiscreteTrack="true" class="slider" num_bound_components_view-scope></IgbSlider>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private double _numVariable;
+
+    public void Navigate(string path)
+    {
+        NavigationManager.NavigateTo(path);
+    }
+}

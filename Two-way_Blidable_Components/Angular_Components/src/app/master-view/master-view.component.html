@@ -1,0 +1,64 @@
+<div class="column-layout group">
+  <div class="row-layout group_1">
+    <h4 class="h4">
+      Component, bound to OBJECT variable
+    </h4>
+    <button igxButton="contained" igxRipple routerLink="/date-bound-components-view" class="button">
+      Previous
+    </button>
+    <button igxButton="contained" igxRipple routerLink="/string-bound-components-view" class="button_1">
+      Next
+    </button>
+  </div>
+  <div class="row-layout group_2">
+    <div class="column-layout group_3">
+      <p class="text">
+        Value of the variable:
+      </p>
+      <p class="text_1">
+        For Simple Combo
+      </p>
+      <p class="text_1">
+        {{ categoryObject?.description }}
+      </p>
+      <p class="text_2">
+        For Combo
+      </p>
+      <p *ngFor="let item of customerOutputArray" class="text_5">
+				{{ item.customerID }}
+			</p>
+    </div>
+    <div class="column-layout group_4"></div>
+    <div class="column-layout group_5">
+      <div class="row-layout group_6">
+        <p class="text_3">
+          Two way bound components
+        </p>
+      </div>
+      <div class="row-layout group_7">
+        <div class="column-layout group_8">
+          <p class="text_4">
+            Simple Combo:
+          </p>
+          <igx-simple-combo type="border" [(ngModel)]="categoryObject!" displayKey="description" [data]="categoryArray" class="user-input">
+            <label igxLabel>Label/Placeholder</label>
+          </igx-simple-combo>
+          <igx-simple-combo type="border" [(ngModel)]="categoryObject!" displayKey="description" [data]="categoryArray" class="user-input_1">
+            <label igxLabel>Label/Placeholder</label>
+          </igx-simple-combo>
+        </div>
+        <div class="column-layout group_9">
+          <p class="text_4">
+            Combo:
+          </p>
+          <igx-combo type="border" [(ngModel)]="customerOutputArray" displayKey="customerID" [autoFocusSearch]="true" [data]="customerArray" class="user-input">
+            <label igxLabel>Label/Placeholder</label>
+          </igx-combo>
+          <igx-combo type="border" [(ngModel)]="customerOutputArray" displayKey="customerID" [autoFocusSearch]="true" [data]="customerArray" class="user-input_1">
+            <label igxLabel>Label/Placeholder</label>
+          </igx-combo>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

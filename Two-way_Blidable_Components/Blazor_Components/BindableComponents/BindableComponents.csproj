@@ -1,0 +1,20 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <RootNamespace>BindableComponents</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IgniteUI.Blazor.Trial" Version="23.2.120" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Pages/StringBoundComponentsView.razor.css" CssScope="string_bound_components_view-scope" />
+    <None Update="Pages/BoolBoundComponentsView.razor.css" CssScope="bool_bound_components_view-scope" />
+    <None Update="Pages/NumBoundComponentsView.razor.css" CssScope="num_bound_components_view-scope" />
+    <None Update="Pages/DateBoundComponentsView.razor.css" CssScope="date_bound_components_view-scope" />
+    <None Update="Pages/Master_View.razor.css" CssScope="master_view-scope" />
+  </ItemGroup>
+</Project>

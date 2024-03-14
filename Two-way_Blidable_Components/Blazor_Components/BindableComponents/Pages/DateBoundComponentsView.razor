@@ -1,0 +1,58 @@
+@page "/date-bound-components-view"
+@inject NavigationManager NavigationManager
+
+<div class="row-layout date-bound-components-view-container">
+    <div class="column-layout group">
+        <div class="row-layout group_1">
+            <h4 class="h4">
+                Component, bound to DATE variable
+            </h4>
+            <IgbButton Size="SizableComponentSize.Large" @onclick="@(e => Navigate("/num-bound-components-view"))" class="button" date_bound_components_view-scope>
+                Previous
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+            <IgbButton Size="SizableComponentSize.Large" @onclick="@(e => Navigate("/master_view"))" class="button_1" date_bound_components_view-scope>
+                Next
+                <IgbRipple></IgbRipple>
+            </IgbButton>
+        </div>
+        <div class="row-layout group_2">
+            <div class="column-layout group_3">
+                <p class="typography__body-1 text">
+                    Value of the variable:
+                </p>
+                <p class="typography__body-1 text_1">
+                    @_dateVariable
+                </p>
+            </div>
+            <div class="column-layout group_4"></div>
+            <div class="column-layout group_5">
+                <div class="row-layout group_6">
+                    <p class="typography__body-1 text_2">
+                        Two way bound components
+                    </p>
+                </div>
+                <div class="row-layout group_7">
+                    <div class="column-layout group_8">
+                        <IgbDatePicker Label="Date" Value="@(_dateVariable ?? default)" class="date-picker" date_bound_components_view-scope></IgbDatePicker>
+                    </div>
+                    <div class="column-layout group_9">
+                        <IgbCalendar HideHeader="false" class="calendar" date_bound_components_view-scope></IgbCalendar>
+                    </div>
+                    <div class="column-layout group_10">
+                        <IgbCalendar HideHeader="false" class="calendar" date_bound_components_view-scope></IgbCalendar>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@code {
+    private DateTime _dateVariable;
+
+    public void Navigate(string path)
+    {
+        NavigationManager.NavigateTo(path);
+    }
+}
