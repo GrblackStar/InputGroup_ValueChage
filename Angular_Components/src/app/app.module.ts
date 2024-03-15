@@ -4,7 +4,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StringBoundComponentsViewComponent } from './string-bound-components-view/string-bound-components-view.component';
-import { IgxButtonModule, IgxRippleModule, IgxInputGroupModule, IgxSelectModule, IgxSwitchModule, IgxCheckboxModule, IgcFormsModule, IgxSliderModule, IgxDatePickerModule, IgxCalendarModule, IgxSimpleComboModule, IgxComboModule } from 'igniteui-angular';
+import { IgxButtonModule, IgxRippleModule, IgxInputGroupModule, IgxSelectModule, IgxSwitchModule, IgxCheckboxModule, IgcFormsModule, IgxSliderModule, IgxDatePickerModule, IgxCalendarModule, IgxSimpleComboModule, IgxComboModule, IgxRadioComponent } from 'igniteui-angular';
 import { FormsModule } from '@angular/forms';
 import { BoolBoundComponentsViewComponent } from './bool-bound-components-view/bool-bound-components-view.component';
 import { NumBoundComponentsViewComponent } from './num-bound-components-view/num-bound-components-view.component';
@@ -37,7 +37,8 @@ import { MasterViewComponent } from './master-view/master-view.component';
     IgxDatePickerModule,
     IgxCalendarModule,
     IgxSimpleComboModule,
-    IgxComboModule
+    IgxComboModule,
+    IgxRadioComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

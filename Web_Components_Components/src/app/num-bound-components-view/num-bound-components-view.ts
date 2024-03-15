@@ -1,9 +1,9 @@
 import { html, css, LitElement } from 'lit';
 import { customElement, state } from 'lit/decorators.js';
 import { Router } from '@vaadin/router';
-import { defineComponents, IgcButtonComponent, IgcInputComponent, IgcRatingComponent, IgcRippleComponent, IgcSliderComponent } from 'igniteui-webcomponents';
+import { defineComponents, IgcButtonComponent, IgcInputComponent, IgcRadioComponent, IgcRadioGroupComponent, IgcRatingComponent, IgcRippleComponent, IgcSliderComponent } from 'igniteui-webcomponents';
 
-defineComponents(IgcButtonComponent, IgcRippleComponent, IgcInputComponent, IgcRatingComponent, IgcSliderComponent);
+defineComponents(IgcButtonComponent, IgcRippleComponent, IgcInputComponent, IgcRatingComponent, IgcRadioGroupComponent, IgcRadioComponent, IgcSliderComponent);
 
 @customElement('app-num-bound-components-view')
 export default class NumBoundComponentsView extends LitElement {
@@ -232,6 +232,17 @@ export default class NumBoundComponentsView extends LitElement {
                 </div>
                 <igc-rating value="${this.numVariable!}" @igcInput="${this.InputNumber}" size="large" class="rating"></igc-rating>
                 <igc-rating value="${this.numVariable!}" @igcInput="${this.InputNumber}" size="large" class="rating_1"></igc-rating>
+                <igc-radio-group value="${this.numVariable!}" @igcInput="${this.InputNumber}" alignment="horizontal" class="user-input">
+									<igc-radio value="1" class="radio">
+										Label
+									</igc-radio>
+									<igc-radio value="2" class="radio">
+										Label
+									</igc-radio>
+									<igc-radio value="3" class="radio">
+										Label
+									</igc-radio>
+								</igc-radio-group>
               </div>
               <div class="column-layout group_9">
                 <igc-slider value="${this.numVariable!}" @igcInput="${this.InputNumber}" min="0" max="100" step="10" ?discrete-track="${true}" class="slider"></igc-slider>

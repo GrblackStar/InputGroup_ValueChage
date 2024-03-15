@@ -37,6 +37,17 @@
                         <div class="column-layout group_8">
                             <IgbRating @bind-Value="_numVariable" Size="SizableComponentSize.Large" class="rating" num_bound_components_view-scope></IgbRating>
                             <IgbRating @bind-Value="_numVariable" Size="SizableComponentSize.Large" class="rating_1" num_bound_components_view-scope></IgbRating>
+                            <IgbRadioGroup @bind-value="_numVariable" Alignment="RadioGroupAlignment.Horizontal" class="user-input" num_bound_components_view-scope>
+                                <IgbRadio Value="1" class="radio" num_bound_components_view-scope>
+                                    Label
+                                </IgbRadio>
+                                <IgbRadio Value="2" class="radio" num_bound_components_view-scope>
+                                    Label
+                                </IgbRadio>
+                                <IgbRadio Value="3" class="radio" num_bound_components_view-scope>
+                                    Label
+                                </IgbRadio>
+                            </IgbRadioGroup>
                         </div>
                         
                     </div>
