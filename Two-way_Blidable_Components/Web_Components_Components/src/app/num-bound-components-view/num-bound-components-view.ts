@@ -185,6 +185,9 @@ export default class NumBoundComponentsView extends LitElement {
       min-width: 50px;
     }
   `;
+  public InputNumber(event: any) {
+	  this.numVariable = event.detail as number;
+  }
 
   @state()
   private numVariable?: number;
@@ -225,14 +228,14 @@ export default class NumBoundComponentsView extends LitElement {
             <div class="row-layout group_7">
               <div class="column-layout group">
                 <div class="column-layout group_8">
-                  <igc-input type="number" value="${this.numVariable!}" label="Duration" ?outlined="${true}" class="input"></igc-input>
+                  <igc-input type="number" value="${this.numVariable!}" @igcInput="${this.InputNumber}" label="Duration" ?outlined="${true}" class="input"></igc-input>
                 </div>
-                <igc-rating value="${this.numVariable!}" size="large" class="rating"></igc-rating>
-                <igc-rating value="${this.numVariable!}" size="large" class="rating_1"></igc-rating>
+                <igc-rating value="${this.numVariable!}" @igcInput="${this.InputNumber}" size="large" class="rating"></igc-rating>
+                <igc-rating value="${this.numVariable!}" @igcInput="${this.InputNumber}" size="large" class="rating_1"></igc-rating>
               </div>
               <div class="column-layout group_9">
-                <igc-slider value="${this.numVariable!}" min="0" max="100" step="10" ?discrete-track="${true}" class="slider"></igc-slider>
-                <igc-slider value="${this.numVariable!}" min="0" max="100" step="10" ?discrete-track="${true}" class="slider"></igc-slider>
+                <igc-slider value="${this.numVariable!}" @igcInput="${this.InputNumber}" min="0" max="100" step="10" ?discrete-track="${true}" class="slider"></igc-slider>
+                <igc-slider value="${this.numVariable!}" @igcInput="${this.InputNumber}" min="0" max="100" step="10" ?discrete-track="${true}" class="slider"></igc-slider>
               </div>
             </div>
           </div>

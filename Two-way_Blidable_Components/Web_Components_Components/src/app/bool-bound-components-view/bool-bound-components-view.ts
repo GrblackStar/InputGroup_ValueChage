@@ -181,6 +181,10 @@ export default class BoolBoundComponentsView extends LitElement {
     }
   `;
 
+  public InputBoolValueChange(event: any) {
+	  this.boolVariable = event.detail;
+  }
+
   @state()
   private boolVariable: boolean = false;
 
@@ -219,19 +223,19 @@ export default class BoolBoundComponentsView extends LitElement {
             </div>
             <div class="row-layout group_7">
               <div class="column-layout group_8">
-                <igc-switch class="switch">
-                  ${this.boolVariable}
+                <igc-switch checked="${this.boolVariable}" @igcChange="${this.InputBoolValueChange}" class="switch">
+                  Label
                 </igc-switch>
-                <igc-switch class="user-input">
-                  ${this.boolVariable}
+                <igc-switch checked="${this.boolVariable}" @igcChange="${this.InputBoolValueChange}" class="user-input">
+                  Label
                 </igc-switch>
               </div>
               <div class="column-layout group_9">
-                <igc-checkbox labelPosition="after" class="checkbox">
-                  ${this.boolVariable}
+                <igc-checkbox checked="${this.boolVariable}" @igcChange="${this.InputBoolValueChange}" labelPosition="after" class="checkbox">
+                  Label
                 </igc-checkbox>
-                <igc-checkbox labelPosition="after" class="user-input">
-                  ${this.boolVariable}
+                <igc-checkbox checked="${this.boolVariable}" @igcChange="${this.InputBoolValueChange}" labelPosition="after" class="user-input">
+                  Label
                 </igc-checkbox>
               </div>
             </div>

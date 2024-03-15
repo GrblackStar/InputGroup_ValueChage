@@ -162,6 +162,11 @@ export default class MasterView extends LitElement {
       height: max-content;
       min-width: min-content;
     }
+    .text_5 {
+			margin: 0 0 10px 20px;
+			height: max-content;
+			min-width: min-content;
+		}
     .button {
       margin: 30px 70px 0 0;
       width: 153px;
@@ -207,6 +212,14 @@ export default class MasterView extends LitElement {
   @state()
   private customerOutputArray: CustomersType[] = [];
 
+  public singleSelectComboIgcChange(event: any) {
+    this.categoryObject = event.detail.newValue[0] as CategoriesType;
+  }
+
+  public comboIgcChange(event: any) {
+		this.customerOutputArray = event.detail.newValue as CustomersType[];
+	}
+
   render() {
     return html`
       <link rel='stylesheet' href='../../ig-theme.css'>
@@ -236,8 +249,13 @@ export default class MasterView extends LitElement {
               ${this.categoryObject?.name}
             </p>
             <p class="typography__body-1 text_2">
-              For Combo
-            </p>
+							For Combo
+						</p>
+						${this.customerOutputArray?.map((item) => html`
+							<p class="typography__body-1 text_5">
+								${item.customerID}
+							</p>
+						`)}
           </div>
           <div class="column-layout group_4"></div>
           <div class="column-layout group_5">
@@ -251,15 +269,15 @@ export default class MasterView extends LitElement {
                 <p class="typography__body-1 text_4">
                   Simple Combo:
                 </p>
-                <igc-combo ?outlined="${true}" label="Label/Placeholder" .value="${this.categoryObject! ? [this.categoryObject!] : []}" display-key="description" ?single-select="${true}" .data="${this.categoryArray}" class="user-input"></igc-combo>
-                <igc-combo ?outlined="${true}" label="Label/Placeholder" .value="${this.categoryObject! ? [this.categoryObject!] : []}" display-key="description" ?single-select="${true}" .data="${this.categoryArray}" class="user-input_1"></igc-combo>
+                <igc-combo ?outlined="${true}" label="Label/Placeholder" .value="${this.categoryObject! ? [this.categoryObject!] : []}" display-key="description" ?single-select="${true}" .data="${this.categoryArray}" @igcChange="${this.singleSelectComboIgcChange}"  class="user-input"></igc-combo>
+                <igc-combo ?outlined="${true}" label="Label/Placeholder" .value="${this.categoryObject! ? [this.categoryObject!] : []}" display-key="description" ?single-select="${true}" .data="${this.categoryArray}" @igcChange="${this.singleSelectComboIgcChange}"  class="user-input_1"></igc-combo>
               </div>
               <div class="column-layout group_9">
                 <p class="typography__body-1 text_4">
                   Combo:
                 </p>
-                <igc-combo ?outlined="${true}" label="Label/Placeholder" .value="${this.customerOutputArray}" display-key="customerID" .autoFocusSearch="${true}" ?disable-filtering="${true}" .data="${this.customerArray}" class="user-input"></igc-combo>
-                <igc-combo ?outlined="${true}" label="Label/Placeholder" .value="${this.customerOutputArray}" display-key="customerID" .autoFocusSearch="${true}" ?disable-filtering="${true}" .data="${this.customerArray}" class="user-input_1"></igc-combo>
+                <igc-combo ?outlined="${true}" label="Label/Placeholder" .value="${this.customerOutputArray}" display-key="customerID" .autoFocusSearch="${true}" ?disable-filtering="${true}" @igcChange="${this.comboIgcChange}" .data="${this.customerArray}" class="user-input"></igc-combo>
+                <igc-combo ?outlined="${true}" label="Label/Placeholder" .value="${this.customerOutputArray}" display-key="customerID" .autoFocusSearch="${true}" ?disable-filtering="${true}" @igcChange="${this.comboIgcChange}" .data="${this.customerArray}" class="user-input"></igc-combo>
               </div>
             </div>
           </div>

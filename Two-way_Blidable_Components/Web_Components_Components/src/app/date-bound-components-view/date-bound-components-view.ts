@@ -186,6 +186,10 @@ export default class DateBoundComponentsView extends LitElement {
     }
   `;
 
+  public InputDate(event: any) {
+	  this.dateVariable = event.detail;
+  }
+
   @state()
   private dateVariable?: Date;
 
@@ -227,10 +231,10 @@ export default class DateBoundComponentsView extends LitElement {
                 <span class="date-picker">DatePicker not yet available in WebComponents</span>
               </div>
               <div class="column-layout group_9">
-                <igc-calendar ?hide-header="${false}" header-orientation="horizontal" class="calendar"></igc-calendar>
+                <igc-calendar ?hide-header="${false}" value="${this.dateVariable}" @igcChange="${this.InputDate}" header-orientation="horizontal" class="calendar"></igc-calendar>
               </div>
               <div class="column-layout group_10">
-                <igc-calendar ?hide-header="${false}" header-orientation="horizontal" class="calendar"></igc-calendar>
+                <igc-calendar ?hide-header="${false}" value="${this.dateVariable}" @igcChange="${this.InputDate}" header-orientation="horizontal" class="calendar"></igc-calendar>
               </div>
             </div>
           </div>

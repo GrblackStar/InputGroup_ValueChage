@@ -202,6 +202,10 @@ export default class StringBoundComponentsView extends LitElement {
   @state()
   private stringVariable?: string;
 
+  public inputIgcInput(event: any) {
+	  this.stringVariable = event.detail as string;
+  }
+
   render() {
     return html`
       <link rel='stylesheet' href='../../ig-theme.css'>
@@ -240,7 +244,8 @@ export default class StringBoundComponentsView extends LitElement {
                 <p class="typography__body-1 text_3">
                   Input group
                 </p>
-                <igc-input value="${this.stringVariable!}" label="Label/Placeholder" ?outlined="${true}" class="input"></igc-input>
+                <igc-input value="${this.stringVariable!}" @igcInput="${this.inputIgcInput}" label="Label/Placeholder" ?outlined="${true}" class="input"></igc-input>
+                <igc-input value="${this.stringVariable!}" @igcInput="${this.inputIgcInput}" label="Label/Placeholder" ?outlined="${true}" class="input"></igc-input>
                 <p class="typography__body-1 text_4">
                   Text Area
                 </p>
