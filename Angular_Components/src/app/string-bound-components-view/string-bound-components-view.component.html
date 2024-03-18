@@ -33,13 +33,13 @@
           </p>
           <igx-input-group type="border" class="input">
             <input type="text" [(ngModel)]="stringVariable!" igxInput />
-            <label igxLabel>Label/Placeholder</label>
+            <label igxLabel>Text input</label>
           </igx-input-group>
           <p class="text_4">
             Text Area
           </p>
           <igx-input-group type="border" class="ig-typography__body-1 textarea">
-            <label igxLabel>Label/Placeholder</label>
+            <label igxLabel>Text area</label>
             <textarea [(ngModel)]="stringVariable!" igxInput></textarea>
           </igx-input-group>
         </div>
@@ -49,16 +49,16 @@
               Select:
             </p>
             <igx-select type="border" [(ngModel)]="stringVariable!" class="select">
-              <igx-select-item value="Option">
-                Option
+              <igx-select-item *ngFor="let item of items" [value]="item">
+                {{item}}
               </igx-select-item>
-              <label igxLabel>Label/Placeholder</label>
+              <label igxLabel>Select component</label>
             </igx-select>
             <igx-select type="border" [(ngModel)]="stringVariable!" class="select_1">
-              <igx-select-item value="Option">
-                Option
+              <igx-select-item *ngFor="let item of items" [value]="item">
+                {{item}}
               </igx-select-item>
-              <label igxLabel>Label/Placeholder</label>
+              <label igxLabel>Select component</label>
             </igx-select>
           </div>
         </div>

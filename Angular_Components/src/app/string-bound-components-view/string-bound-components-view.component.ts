@@ -6,5 +6,6 @@ import { Component } from '@angular/core';
   styleUrls: ['./string-bound-components-view.component.scss']
 })
 export class StringBoundComponentsViewComponent {
-  public stringVariable?: string;
+  public stringVariable? = "Apple";
+  public items: string[] = ['Orange', 'Apple', 'Banana', 'Mango'];
 }

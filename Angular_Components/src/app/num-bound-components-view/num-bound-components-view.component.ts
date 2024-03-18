@@ -9,5 +9,6 @@ defineComponents(IgcRatingComponent);
   styleUrls: ['./num-bound-components-view.component.scss']
 })
 export class NumBoundComponentsViewComponent {
-  public numVariable?: number;
+  public numVariable = 1;
+  public numItems = [1, 2, 3];
 }

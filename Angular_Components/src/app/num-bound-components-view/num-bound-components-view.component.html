@@ -31,26 +31,20 @@
           <div class="column-layout group_8">
             <igx-input-group type="border" class="input">
               <input type="number" [(ngModel)]="numVariable!" igxInput />
-              <label igxLabel>Duration</label>
+              <label igxLabel>Number input</label>
             </igx-input-group>
           </div>
           <igc-rating [(ngModel)]="numVariable!" size="large" class="rating"></igc-rating>
-          <igc-rating [(ngModel)]="numVariable!" size="large" class="rating_1"></igc-rating>
-          <igx-radio-group [(ngModel)]="numVariable!" class="radio-group">
-            <igx-radio value="1" class="radio">
-              Label
-            </igx-radio>
-            <igx-radio value="2" class="radio">
-              Label
-            </igx-radio>
-            <igx-radio value="3" class="radio">
-              Label
+          <igx-radio-group [(ngModel)]="numVariable" class="radio-group">
+            <igx-radio class="radio-sample"
+              *ngFor="let item of numItems"
+              [value]="item">
+                  {{ item }}
             </igx-radio>
           </igx-radio-group>
         </div>
         <div class="column-layout group_9">
-          <igx-slider [(ngModel)]="numVariable!" [minValue]="0" [maxValue]="100" [step]="10" [secondaryTickLabels]="false" class="slider"></igx-slider>
-          <igx-slider [(ngModel)]="numVariable!" [minValue]="0" [maxValue]="100" [step]="10" [secondaryTickLabels]="false" class="slider"></igx-slider>
+          <igx-slider  [primaryTickLabels]="true" [(ngModel)]="numVariable!" [minValue]="0" [maxValue]="5" [step]="1" [showTicks]="true" [secondaryTickLabels]="false"></igx-slider>
         </div>
       </div>
     </div>
