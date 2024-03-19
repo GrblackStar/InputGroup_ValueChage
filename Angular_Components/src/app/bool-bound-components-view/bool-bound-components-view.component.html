@@ -28,19 +28,16 @@
       </div>
       <div class="row-layout group_7">
         <div class="column-layout group_8">
-          <igx-switch [(ngModel)]="boolVariable" class="switch">
-            Label
-          </igx-switch>
-          <igx-switch [(ngModel)]="boolVariable" class="user-input">
-            Label
+          <igx-checkbox [(ngModel)]="readonly">ReadOnly / Disabled</igx-checkbox>
+        </div>
+        <div class="column-layout group_8">
+          <igx-switch [(ngModel)]="boolVariable" class="switch" [readonly]="readonly">
+            readonly mode
           </igx-switch>
         </div>
         <div class="column-layout group_9">
-          <igx-checkbox [(ngModel)]="boolVariable" labelPosition="after" class="checkbox">
-            Label
-          </igx-checkbox>
-          <igx-checkbox [(ngModel)]="boolVariable" labelPosition="after" class="user-input">
-            Label
+          <igx-checkbox [(ngModel)]="boolVariable" labelPosition="after" class="checkbox" [disabled]="readonly">
+            disabled mode
           </igx-checkbox>
         </div>
       </div>

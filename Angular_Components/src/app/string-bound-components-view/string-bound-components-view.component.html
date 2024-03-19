@@ -31,8 +31,9 @@
           <p class="text_3">
             Input group
           </p>
+          <igx-checkbox [(ngModel)]="readonlyInput">ReadOnly / Disabled</igx-checkbox>
           <igx-input-group type="border" class="input">
-            <input type="text" [(ngModel)]="stringVariable!" igxInput />
+            <input type="text" [(ngModel)]="stringVariable!" igxInput [readonly]="readonlyInput" />
             <label igxLabel>Text input</label>
           </igx-input-group>
           <p class="text_4">
@@ -40,21 +41,15 @@
           </p>
           <igx-input-group type="border" class="ig-typography__body-1 textarea">
             <label igxLabel>Text area</label>
-            <textarea [(ngModel)]="stringVariable!" igxInput></textarea>
+            <textarea [(ngModel)]="stringVariable!" igxInput [disabled]="readonlyInput"></textarea>
           </igx-input-group>
         </div>
         <div class="column-layout group_8">
           <div class="column-layout group_9">
             <p class="text_3">
-              Select:
+              Select (disabled in readonly mode!):
             </p>
-            <igx-select type="border" [(ngModel)]="stringVariable!" class="select">
-              <igx-select-item *ngFor="let item of items" [value]="item">
-                {{item}}
-              </igx-select-item>
-              <label igxLabel>Select component</label>
-            </igx-select>
-            <igx-select type="border" [(ngModel)]="stringVariable!" class="select_1">
+            <igx-select type="border" [(ngModel)]="stringVariable!" class="select" [disabled]="readonlyInput">
               <igx-select-item *ngFor="let item of items" [value]="item">
                 {{item}}
               </igx-select-item>

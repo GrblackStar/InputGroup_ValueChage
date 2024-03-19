@@ -36,14 +36,18 @@
         </p>
       </div>
       <div class="row-layout group_7">
+        <igx-checkbox [(ngModel)]="readonly">ReadOnly / Disabled</igx-checkbox>
         <div class="column-layout group_8">
           <p class="text_4">
             Simple Combo:
           </p>
-          <igx-simple-combo type="border" [(ngModel)]="categoryObject!" displayKey="description" [data]="categoryArray" class="user-input">
-            <label igxLabel>Simple Combo</label>
-          </igx-simple-combo>
-          <igx-simple-combo type="border" [(ngModel)]="categoryObject!" displayKey="description" [data]="categoryArray" class="user-input_1">
+          <igx-simple-combo
+            [(ngModel)]="categoryObject!"
+            displayKey="description"
+            [data]="categoryArray"
+            class="user-input"
+            [disabled]="readonly"
+          >
             <label igxLabel>Simple Combo</label>
           </igx-simple-combo>
         </div>
@@ -51,10 +55,14 @@
           <p class="text_4">
             Combo:
           </p>
-          <igx-combo type="border" [(ngModel)]="customerOutputArray" displayKey="customerID" [autoFocusSearch]="true" [data]="customerArray" class="user-input">
-            <label igxLabel>Combo</label>
-          </igx-combo>
-          <igx-combo type="border" [(ngModel)]="customerOutputArray" displayKey="customerID" [autoFocusSearch]="true" [data]="customerArray" class="user-input_1">
+          <igx-combo type="border"
+            [(ngModel)]="customerOutputArray"
+            displayKey="customerID"
+            [autoFocusSearch]="true"
+            [data]="customerArray"
+            class="user-input"
+            [disabled]="readonly"
+          >
             <label igxLabel>Combo</label>
           </igx-combo>
         </div>

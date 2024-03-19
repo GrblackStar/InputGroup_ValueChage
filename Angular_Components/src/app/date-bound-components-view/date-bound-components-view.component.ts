@@ -10,4 +10,5 @@ export class DateBoundComponentsViewComponent {
     public min = new Date(2018, 10, 27, 6, 30, 15, 0);
     public max = new Date(2018, 10, 27, 14, 20, 30, 0);
     public dateVariable = new Date();
+    public readonly = false;
 }

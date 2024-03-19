@@ -8,4 +8,5 @@ import { Component } from '@angular/core';
 export class StringBoundComponentsViewComponent {
   public stringVariable? = "Apple";
   public items: string[] = ['Orange', 'Apple', 'Banana', 'Mango'];
+  public readonlyInput = false;
 }

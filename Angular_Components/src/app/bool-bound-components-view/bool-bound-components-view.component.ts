@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class BoolBoundComponentsViewComponent {
   public boolVariable = true;
+  public readonly = false;
 }

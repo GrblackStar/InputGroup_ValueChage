@@ -15,6 +15,7 @@ export class MasterViewComponent implements OnInit, OnDestroy {
   public categoryObject?: CategoriesType;
   public customerArray: CustomersType[] = [];
   public customerOutputArray: CustomersType[] = [];
+  public readonly = false;
 
   constructor(
     private northwindService: NorthwindService,

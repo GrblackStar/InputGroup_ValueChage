@@ -11,4 +11,5 @@ defineComponents(IgcRatingComponent);
 export class NumBoundComponentsViewComponent {
   public numVariable = 1;
   public numItems = [1, 2, 3];
+  public readonly = false;
 }
