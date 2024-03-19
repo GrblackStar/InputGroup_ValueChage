@@ -52,18 +52,18 @@ export default function BoolBoundComponentsView() {
               </div>
               <div className={classes("row-layout group_7")}>
                 <div className={classes("column-layout group_8")}>
-                  <IgrSwitch checked="boolVariable" className={classes("switch")}>
+                  <IgrSwitch checked={boolVariable} className={classes("switch")}>
                     <span>Label</span>
                   </IgrSwitch>
-                  <IgrSwitch checked="boolVariable" className={classes("user-input")}>
+                  <IgrSwitch checked={boolVariable} className={classes("user-input")}>
                     <span>Label</span>
                   </IgrSwitch>
                 </div>
                 <div className={classes("column-layout group_9")}>
-                  <IgrCheckbox labelPosition="after" checked="boolVariable" className={classes("checkbox")}>
+                  <IgrCheckbox labelPosition="after" checked={boolVariable} className={classes("checkbox")}>
                     <span>Label</span>
                   </IgrCheckbox>
-                  <IgrCheckbox labelPosition="after" checked="boolVariable" className={classes("user-input")}>
+                  <IgrCheckbox labelPosition="after" checked={boolVariable} className={classes("user-input")}>
                     <span>Label</span>
                   </IgrCheckbox>
                 </div>

@@ -56,10 +56,10 @@ export default function NumBoundComponentsView() {
               <div className={classes("row-layout group_7")}>
                 <div className={classes("column-layout group")}>
                   <div className={classes("column-layout group_8")}>
-                    <IgrInput type="number" value="numVariable!" label="Duration" outlined="true" className={classes("input")}></IgrInput>
+                    <IgrInput type="number" value={numVariable!.toString()} label="Duration" outlined="true" className={classes("input")}></IgrInput>
                   </div>
-                  <IgrRating value="numVariable!" size="large" className={classes("rating")}></IgrRating>
-                  <IgrRating value="numVariable!" size="large" className={classes("user-input")}></IgrRating>
+                  <IgrRating value={numVariable!} size="large" className={classes("rating")}></IgrRating>
+                  <IgrRating value={numVariable!} size="large" className={classes("user-input")}></IgrRating>
                   <IgrRadioGroup alignment="horizontal" className={classes("user-input")}>
                     <IgrRadio value="1" className={classes("radio")}>
                       <span>Label</span>
@@ -73,8 +73,8 @@ export default function NumBoundComponentsView() {
                   </IgrRadioGroup>
                 </div>
                 <div className={classes("column-layout group_9")}>
-                  <IgrSlider value="numVariable!" min="0" max="100" step="10" discreteTrack="true" className={classes("slider")}></IgrSlider>
-                  <IgrSlider value="numVariable!" min="0" max="100" step="10" discreteTrack="true" className={classes("slider")}></IgrSlider>
+                  <IgrSlider value={numVariable!} min="0" max="100" step="10" discreteTrack="true" className={classes("slider")}></IgrSlider>
+                  <IgrSlider value={numVariable!} min="0" max="100" step="10" discreteTrack="true" className={classes("slider")}></IgrSlider>
                 </div>
               </div>
             </div>

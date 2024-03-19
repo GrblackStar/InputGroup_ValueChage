@@ -66,10 +66,10 @@ export default function DateBoundComponentsView() {
                   <IgrDatePicker label="Date" value={dateVariable!}></IgrDatePicker>
                 </div>
                 <div className={classes("column-layout group_9")}>
-                  <IgrCalendar hideHeader="Horizontal" headerOrientation="horizontal" className={classes("calendar")}></IgrCalendar>
+                  <IgrCalendar hideHeader="Horizontal" value={dateVariable!} headerOrientation="horizontal" className={classes("calendar")}></IgrCalendar>
                 </div>
                 <div className={classes("column-layout group_10")}>
-                  <IgrCalendar hideHeader="Horizontal" headerOrientation="horizontal" className={classes("calendar")}></IgrCalendar>
+                  <IgrCalendar hideHeader="Horizontal" value={dateVariable!} headerOrientation="horizontal" className={classes("calendar")}></IgrCalendar>
                 </div>
               </div>
             </div>

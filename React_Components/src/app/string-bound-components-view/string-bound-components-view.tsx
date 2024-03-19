@@ -55,7 +55,7 @@ export default function StringBoundComponentsView() {
                   <p className={classes("typography__body-1 text_3")}>
                     <span>Input group</span>
                   </p>
-                  <IgrInput value="stringVariable!" label="Label/Placeholder" outlined="true" className={classes("input")}></IgrInput>
+                  <IgrInput value={stringVariable!} label="Label/Placeholder" outlined="true" className={classes("input")}></IgrInput>
                   <p className={classes("typography__body-1 text_4")}>
                     <span>Text Area</span>
                   </p>
@@ -66,7 +66,7 @@ export default function StringBoundComponentsView() {
                     <p className={classes("typography__body-1 text_3")}>
                       <span>Select:</span>
                     </p>
-                    <IgrSelect outlined="true" label="Label/Placeholder" placeholder="stringVariable!" value="stringVariable!" className={classes("select")}>
+                    <IgrSelect outlined="true" label="Label/Placeholder" placeholder={stringVariable!} value={stringVariable!} className={classes("select")}>
                       <IgrSelectItem value="Option">
                         <span>Option</span>
                       </IgrSelectItem>
