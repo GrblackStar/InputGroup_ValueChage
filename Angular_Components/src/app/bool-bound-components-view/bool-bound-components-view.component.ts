@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./bool-bound-components-view.component.scss']
 })
 export class BoolBoundComponentsViewComponent {
-  public boolVariable: boolean = false;
+  public boolVariable = true;
 }

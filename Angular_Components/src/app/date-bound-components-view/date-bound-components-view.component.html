@@ -16,7 +16,7 @@
         Value of the variable:
       </p>
       <p class="text_1">
-        {{ dateVariable }}
+        {{ date }}
       </p>
     </div>
     <div class="column-layout group_4"></div>
@@ -28,15 +28,19 @@
       </div>
       <div class="row-layout group_7">
         <div class="column-layout group_8">
-          <igx-date-picker [(ngModel)]="dateVariable!" type="border" mode="dialog" class="date-picker">
+          <igx-date-picker [(ngModel)]="date" type="border" mode="dialog" class="date-picker">
             <label igxLabel>Date</label>
           </igx-date-picker>
         </div>
         <div class="column-layout group_9">
-          <igx-calendar [(ngModel)]="dateVariable!" [hasHeader]="true" [vertical]="false" class="calendar"></igx-calendar>
+          <igx-calendar [viewDate]="date" [(ngModel)]="date" [hasHeader]="true" [vertical]="false" class="calendar"></igx-calendar>
         </div>
         <div class="column-layout group_10">
-          <igx-calendar [(ngModel)]="dateVariable!" [hasHeader]="true" [vertical]="false" class="calendar"></igx-calendar>
+          
+            <igx-time-picker #tp
+              [(ngModel)]="date!"
+              displayFormat="shortDate">
+            </igx-time-picker>
         </div>
       </div>
     </div>
