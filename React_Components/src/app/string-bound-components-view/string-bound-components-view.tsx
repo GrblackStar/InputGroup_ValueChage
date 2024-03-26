@@ -2,6 +2,7 @@ import { IgrButton, IgrButtonModule, IgrInput, IgrInputModule, IgrRipple, IgrRip
 import { useNavigate } from 'react-router-dom';
 import styles from './string-bound-components-view.module.css';
 import createClassTransformer from '../style-utils';
+import { useState } from 'react';
 
 IgrButtonModule.register();
 IgrInputModule.register();
@@ -11,7 +12,11 @@ IgrSelectModule.register();
 export default function StringBoundComponentsView() {
   const navigate = useNavigate();
   const classes = createClassTransformer(styles);
-  const stringVariable: string = null;
+  //const stringVariable: string = null;
+  const [stringVariable, setStringVariable] = useState('');
+  const handleChange = (event) => {
+    setStringVariable(event.target.value);
+  };
 
   return (
     <>
@@ -55,7 +60,7 @@ export default function StringBoundComponentsView() {
                   <p className={classes("typography__body-1 text_3")}>
                     <span>Input group</span>
                   </p>
-                  <IgrInput value={stringVariable!} label="Label/Placeholder" outlined="true" className={classes("input")}></IgrInput>
+                  <IgrInput value={stringVariable} change={handleChange} label="Label/Placeholder" outlined="true" className={classes("input")}></IgrInput>
                   <p className={classes("typography__body-1 text_4")}>
                     <span>Text Area</span>
                   </p>
