@@ -2,6 +2,7 @@ import { IgrButton, IgrButtonModule, IgrInput, IgrInputModule, IgrRadio, IgrRadi
 import { useNavigate } from 'react-router-dom';
 import styles from './num-bound-components-view.module.css';
 import createClassTransformer from '../style-utils';
+import { useState } from 'react';
 
 IgrButtonModule.register();
 IgrInputModule.register();
@@ -14,7 +15,11 @@ IgrSliderModule.register();
 export default function NumBoundComponentsView() {
   const navigate = useNavigate();
   const classes = createClassTransformer(styles);
-  const numVariable: number = 0;
+  //const numVariable: number = 0;
+  const [numVariable, setNumVariable] = useState('');
+  const handleChange = (event) => {
+    setNumVariable(event.value);
+  };
 
   return (
     <>
@@ -43,7 +48,7 @@ export default function NumBoundComponentsView() {
                 <span>Value of the variable:</span>
               </p>
               <p className={classes("typography__body-1 text_1")}>
-                <span>{numVariable!}</span>
+                <span>{numVariable! || 0}</span>
               </p>
             </div>
             <div className={classes("column-layout group_4")}></div>
@@ -56,11 +61,11 @@ export default function NumBoundComponentsView() {
               <div className={classes("row-layout group_7")}>
                 <div className={classes("column-layout group")}>
                   <div className={classes("column-layout group_8")}>
-                    <IgrInput type="number" value={numVariable!.toString()} label="Duration" outlined="true" className={classes("input")}></IgrInput>
+                    <IgrInput type="number" value={numVariable!.toString()} change={handleChange} label="Duration" outlined="true" className={classes("input")}></IgrInput>
                   </div>
-                  <IgrRating value={numVariable!} size="large" className={classes("rating")}></IgrRating>
-                  <IgrRating value={numVariable!} size="large" className={classes("user-input")}></IgrRating>
-                  <IgrRadioGroup alignment="horizontal" className={classes("user-input")}>
+                  <IgrRating value={numVariable!} change={handleChange} size="large" className={classes("rating")}></IgrRating>
+                  <IgrRating value={numVariable!} change={handleChange} size="large" className={classes("user-input")}></IgrRating>
+                  <IgrRadioGroup value={numVariable!} change={handleChange} alignment="horizontal" className={classes("user-input")}>
                     <IgrRadio value="1" className={classes("radio")}>
                       <span>Label</span>
                     </IgrRadio>
@@ -73,8 +78,8 @@ export default function NumBoundComponentsView() {
                   </IgrRadioGroup>
                 </div>
                 <div className={classes("column-layout group_9")}>
-                  <IgrSlider value={numVariable!} min="0" max="100" step="10" discreteTrack="true" className={classes("slider")}></IgrSlider>
-                  <IgrSlider value={numVariable!} min="0" max="100" step="10" discreteTrack="true" className={classes("slider")}></IgrSlider>
+                  <IgrSlider value={numVariable!} change={handleChange} min="0" max="100" step="10" discreteTrack="true" className={classes("slider")}></IgrSlider>
+                  <IgrSlider value={numVariable!} input={handleChange} min="0" max="100" step="10" discreteTrack="true" className={classes("slider")}></IgrSlider>
                 </div>
               </div>
             </div>
