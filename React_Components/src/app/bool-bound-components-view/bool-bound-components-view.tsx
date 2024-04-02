@@ -2,6 +2,7 @@ import { IgrButton, IgrButtonModule, IgrCheckbox, IgrCheckboxModule, IgrRipple, 
 import { useNavigate } from 'react-router-dom';
 import styles from './bool-bound-components-view.module.css';
 import createClassTransformer from '../style-utils';
+import { useState } from 'react';
 
 IgrButtonModule.register();
 IgrCheckboxModule.register();
@@ -11,7 +12,13 @@ IgrSwitchModule.register();
 export default function BoolBoundComponentsView() {
   const navigate = useNavigate();
   const classes = createClassTransformer(styles);
-  const boolVariable: boolean = false;
+
+  const [boolVariable, setBoolVariable] = useState(false);
+  const handleChange = (event) => {
+    setBoolVariable(event.checked);
+  };
+
+  const boolToStringValue: string = boolVariable.valueOf().toString();
 
   return (
     <>
@@ -40,7 +47,7 @@ export default function BoolBoundComponentsView() {
                 <span>Value of the variable:</span>
               </p>
               <p className={classes("typography__body-1 text_1")}>
-                <span>{boolVariable}</span>
+                <span>{boolToStringValue!}</span>
               </p>
             </div>
             <div className={classes("column-layout group_4")}></div>
@@ -52,18 +59,18 @@ export default function BoolBoundComponentsView() {
               </div>
               <div className={classes("row-layout group_7")}>
                 <div className={classes("column-layout group_8")}>
-                  <IgrSwitch checked={boolVariable} className={classes("switch")}>
+                  <IgrSwitch checked={boolVariable} change={handleChange} className={classes("switch")}>
                     <span>Label</span>
                   </IgrSwitch>
-                  <IgrSwitch checked={boolVariable} className={classes("user-input")}>
+                  <IgrSwitch checked={boolVariable} change={handleChange} className={classes("user-input")}>
                     <span>Label</span>
                   </IgrSwitch>
                 </div>
                 <div className={classes("column-layout group_9")}>
-                  <IgrCheckbox labelPosition="after" checked={boolVariable} className={classes("checkbox")}>
+                  <IgrCheckbox labelPosition="after" checked={boolVariable} change={handleChange} className={classes("checkbox")}>
                     <span>Label</span>
                   </IgrCheckbox>
-                  <IgrCheckbox labelPosition="after" checked={boolVariable} className={classes("user-input")}>
+                  <IgrCheckbox labelPosition="after" checked={boolVariable} change={handleChange} className={classes("user-input")}>
                     <span>Label</span>
                   </IgrCheckbox>
                 </div>
