@@ -12,10 +12,9 @@ IgrSelectModule.register();
 export default function StringBoundComponentsView() {
   const navigate = useNavigate();
   const classes = createClassTransformer(styles);
-  //const stringVariable: string = null;
   const [stringVariable, setStringVariable] = useState('');
   const handleChange = (event) => {
-    setStringVariable(event.target.value);
+    setStringVariable(event.value);
   };
 
   return (
@@ -60,6 +59,7 @@ export default function StringBoundComponentsView() {
                   <p className={classes("typography__body-1 text_3")}>
                     <span>Input group</span>
                   </p>
+                  <IgrInput value={stringVariable} inputOcurred={handleChange} label="Label/Placeholder" outlined="true" className={classes("input")}></IgrInput>
                   <IgrInput value={stringVariable} change={handleChange} label="Label/Placeholder" outlined="true" className={classes("input")}></IgrInput>
                   <p className={classes("typography__body-1 text_4")}>
                     <span>Text Area</span>
@@ -71,12 +71,15 @@ export default function StringBoundComponentsView() {
                     <p className={classes("typography__body-1 text_3")}>
                       <span>Select:</span>
                     </p>
-                    <IgrSelect outlined="true" label="Label/Placeholder" placeholder={stringVariable!} value={stringVariable!} className={classes("select")}>
+                    <IgrSelect outlined="true" label="Label/Placeholder" placeholder={stringVariable!} value={stringVariable!} change={handleChange} className={classes("select")}>
                       <IgrSelectItem value="Option">
                         <span>Option</span>
                       </IgrSelectItem>
+                      <IgrSelectItem value="Option2">
+                        <span>Option2</span>
+                      </IgrSelectItem>
                     </IgrSelect>
-                    <IgrSelect outlined="true" label="Label/Placeholder" className={classes("select_1")}>
+                    <IgrSelect outlined="true" label="Label/Placeholder" placeholder={stringVariable!} value={stringVariable!} change={handleChange} className={classes("select_1")}>
                       <IgrSelectItem value="Option">
                         <span>Option</span>
                       </IgrSelectItem>
