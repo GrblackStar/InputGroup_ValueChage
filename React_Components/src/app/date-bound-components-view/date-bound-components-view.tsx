@@ -3,6 +3,7 @@ import { IgrDatePicker, IgrDatePickerModule } from 'igniteui-react-inputs';
 import { useNavigate } from 'react-router-dom';
 import styles from './date-bound-components-view.module.css';
 import createClassTransformer from '../style-utils';
+import { useState } from 'react';
 
 IgrButtonModule.register();
 IgrCalendarModule.register();
@@ -12,17 +13,11 @@ IgrDatePickerModule.register();
 export default function DateBoundComponentsView() {
   const navigate = useNavigate();
   const classes = createClassTransformer(styles);
-  const dateVariable: Date = new Date();
 
-  /*
-  const StyledDatePicker = ({ className, ...rest }) => (
-    <div className={className}>
-      <IgrDatePicker {...rest}></IgrDatePicker>
-    </div>
-  );
-
-  //<StyledDatePicker className={classes("date-picker")} label="Date" value={dateVariable!}></StyledDatePicker>
-  */
+  const [dateVariable, setDateVariable] = useState(new Date());
+  const handleChange = (event) => {
+    setDateVariable(event.value);
+  };
 
   return (
     <>
@@ -63,13 +58,13 @@ export default function DateBoundComponentsView() {
               </div>
               <div className={classes("row-layout group_7")}>
                 <div className={classes("column-layout group_8")}>
-                  <IgrDatePicker label="Date" value={dateVariable!}></IgrDatePicker>
+                  <IgrDatePicker label="Date" value={dateVariable!} selectedValueChanged={handleChange}></IgrDatePicker>
                 </div>
                 <div className={classes("column-layout group_9")}>
-                  <IgrCalendar hideHeader="Horizontal" value={dateVariable!} headerOrientation="horizontal" className={classes("calendar")}></IgrCalendar>
+                  <IgrCalendar hideHeader="Horizontal" value={dateVariable!} change={handleChange} headerOrientation="horizontal" className={classes("calendar")}></IgrCalendar>
                 </div>
                 <div className={classes("column-layout group_10")}>
-                  <IgrCalendar hideHeader="Horizontal" value={dateVariable!} headerOrientation="horizontal" className={classes("calendar")}></IgrCalendar>
+                  <IgrCalendar hideHeader="Horizontal" value={dateVariable!} change={handleChange} headerOrientation="horizontal" className={classes("calendar")}></IgrCalendar>
                 </div>
               </div>
             </div>
