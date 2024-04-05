@@ -28,15 +28,15 @@
       </div>
       <div class="row-layout group_7">
         <div class="column-layout group_8">
-          <igx-checkbox [(ngModel)]="readonly">ReadOnly / Disabled</igx-checkbox>
+          <igx-checkbox [(ngModel)]="readonly" [ngModelOptions]="{updateOn: 'blur'}">ReadOnly / Disabled</igx-checkbox>
         </div>
         <div class="column-layout group_8">
-          <igx-switch [(ngModel)]="boolVariable" class="switch" [readonly]="readonly">
+          <igx-switch [(ngModel)]="boolVariable" [ngModelOptions]="{updateOn: 'blur'}" class="switch" [readonly]="readonly">
             readonly mode
           </igx-switch>
         </div>
         <div class="column-layout group_9">
-          <igx-checkbox [(ngModel)]="boolVariable" labelPosition="after" class="checkbox" [disabled]="readonly">
+          <igx-checkbox [(ngModel)]="boolVariable" [ngModelOptions]="{updateOn: 'blur'}" labelPosition="after" class="checkbox" [disabled]="readonly">
             disabled mode
           </igx-checkbox>
         </div>

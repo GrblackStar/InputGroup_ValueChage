@@ -30,13 +30,13 @@
         <div class="column-layout group">
           <div class="column-layout group_8">
             <igx-input-group type="border" class="input">
-              <input type="number" [(ngModel)]="numVariable!" igxInput [disabled]="readonly" />
+              <input type="number" [(ngModel)]="numVariable!" igxInput [disabled]="readonly" [ngModelOptions]="{updateOn: 'blur'}" />
               <label igxLabel>Number input</label>
             </igx-input-group>
           </div>
-          <igx-checkbox [(ngModel)]="readonly">ReadOnly / Disabled</igx-checkbox>
-          <igc-rating [(ngModel)]="numVariable!" size="large" class="rating" [disabled]="readonly"></igc-rating>
-          <igx-radio-group [(ngModel)]="numVariable" class="radio-group" [disabled]="readonly">
+          <igx-checkbox [(ngModel)]="readonly" [ngModelOptions]="{updateOn: 'blur'}">ReadOnly / Disabled</igx-checkbox>
+          <igc-rating [(ngModel)]="numVariable!" [ngModelOptions]="{updateOn: 'blur'}" size="large" class="rating" [disabled]="readonly"></igc-rating>
+          <igx-radio-group [(ngModel)]="numVariable" [ngModelOptions]="{updateOn: 'blur'}" class="radio-group" [disabled]="readonly">
             <igx-radio class="radio-sample" [disabled]="readonly"
               *ngFor="let item of numItems"
               [value]="item">
@@ -45,7 +45,7 @@
           </igx-radio-group>
         </div>
         <div class="column-layout group_9">
-          <igx-slider [disabled]="readonly" [primaryTickLabels]="true" [(ngModel)]="numVariable!" [minValue]="0" [maxValue]="5" [step]="1" [showTicks]="true" [secondaryTickLabels]="false"></igx-slider>
+          <igx-slider [disabled]="readonly" [primaryTickLabels]="true" [(ngModel)]="numVariable!" [ngModelOptions]="{updateOn: 'blur'}" [minValue]="0" [maxValue]="5" [step]="1" [showTicks]="true" [secondaryTickLabels]="false"></igx-slider>
         </div>
       </div>
     </div>

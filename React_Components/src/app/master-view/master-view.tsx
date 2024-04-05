@@ -3,8 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useGetCategories, useGetCustomers } from '../hooks/northwind-hooks';
 import styles from './master-view.module.css';
 import createClassTransformer from '../style-utils';
-import { CustomersType } from '../models/northwind/customers-type';
-import { CategoriesType } from '../models/northwind/categories-type';
+import { useState } from 'react';
 
 IgrButtonModule.register();
 IgrComboModule.register();
@@ -13,10 +12,20 @@ IgrRippleModule.register();
 export default function MasterView() {
   const navigate = useNavigate();
   const classes = createClassTransformer(styles);
-  const categoryArray = useGetCategories();
   const customerArray = useGetCustomers();
-  const categoryObject: CategoriesType = null;
-  const customerOutputArray: CustomersType[] = [];
+  const categoryArray = useGetCategories();
+  
+  const [categoryObject, setCategoryObject] = useState(null);
+  const handleChange = (component) => {
+    const selectedCategory = component.value[0];
+    setCategoryObject(selectedCategory);
+  };
+
+  const [customerOutputArray, setcustomerOutputArray] = useState(null);
+  const handleMultipleSelectionChange = (component) => {
+    const selectedElements= component.value;
+    setcustomerOutputArray(selectedElements);
+  }
 
   return (
     <>
@@ -63,15 +72,15 @@ export default function MasterView() {
                   <p className={classes("typography__body-1 text_3")}>
                     <span>Simple Combo:</span>
                   </p>
-                  <IgrCombo outlined="true" data={categoryArray} label="Label/Placeholder" displayKey="description" singleSelect="true" className={classes("user-input")}></IgrCombo>
-                  <IgrCombo outlined="true" data={categoryArray} label="Label/Placeholder" displayKey="description" singleSelect="true" className={classes("user-input_1")}></IgrCombo>
+                  <IgrCombo outlined="true" data={categoryArray} value={ [categoryObject] } closing={handleChange} label="Label/Placeholder" displayKey="description" singleSelect="true" className={classes("user-input")}></IgrCombo>
+                  <IgrCombo outlined="true" data={categoryArray} value={ [categoryObject] } closing={handleChange} label="Label/Placeholder" displayKey="description" singleSelect="true" className={classes("user-input_1")}></IgrCombo>
                 </div>
                 <div className={classes("column-layout group_9")}>
                   <p className={classes("typography__body-1 text_3")}>
                     <span>Combo:</span>
                   </p>
-                  <IgrCombo outlined="true" data={customerArray} label="Label/Placeholder" displayKey="customerID" autoFocusSearch="true" disableFiltering="true"  className={classes("user-input")}></IgrCombo>
-                  <IgrCombo outlined="true" data={customerArray} label="Label/Placeholder" displayKey="customerID" autoFocusSearch="true" disableFiltering="true" className={classes("user-input_1")}></IgrCombo>
+                  <IgrCombo outlined="true" data={customerArray} value={customerOutputArray! ? customerOutputArray : []} closing={handleMultipleSelectionChange} label="Label/Placeholder" displayKey="customerID" autoFocusSearch="true" disableFiltering="true"  className={classes("user-input")}></IgrCombo>
+                  <IgrCombo outlined="true" data={customerArray} value={customerOutputArray! ? customerOutputArray : []} closing={handleMultipleSelectionChange} label="Label/Placeholder" displayKey="customerID" autoFocusSearch="true" disableFiltering="true" className={classes("user-input_1")}></IgrCombo>
                 </div>
               </div>
             </div>

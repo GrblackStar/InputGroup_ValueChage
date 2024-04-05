@@ -43,6 +43,7 @@
           </p>
           <igx-simple-combo
             [(ngModel)]="categoryObject!"
+            [ngModelOptions]="{updateOn: 'blur'}"
             displayKey="description"
             [data]="categoryArray"
             class="user-input"
@@ -57,6 +58,7 @@
           </p>
           <igx-combo type="border"
             [(ngModel)]="customerOutputArray"
+            [ngModelOptions]="{updateOn: 'blur'}" 
             displayKey="customerID"
             [autoFocusSearch]="true"
             [data]="customerArray"
