@@ -33,7 +33,7 @@
           </p>
           <igx-checkbox [(ngModel)]="readonlyInput">ReadOnly / Disabled</igx-checkbox>
           <igx-input-group type="border" class="input">
-            <input type="text" [(ngModel)]="stringVariable!" igxInput [ngModelOptions]="{updateOn: 'blur'}" [readonly]="readonlyInput" />
+            <input type="text" [(ngModel)]="stringVariable!" igxInput [ngModelOptions]="{updateOn: 'blur'}" [disabled]="readonlyInput" [readonly]="readonlyInput" />
             <label igxLabel>Text input</label>
           </igx-input-group>
           <p class="text_4">

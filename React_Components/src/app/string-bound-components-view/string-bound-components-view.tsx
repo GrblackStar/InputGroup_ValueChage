@@ -1,4 +1,4 @@
-import { IgrButton, IgrButtonModule, IgrInput, IgrInputModule, IgrRipple, IgrRippleModule, IgrSelect, IgrSelectItem, IgrSelectModule } from 'igniteui-react';
+import { IgrButton, IgrButtonModule, IgrInput, IgrInputModule, IgrRipple, IgrRippleModule, IgrSelect, IgrSelectItem, IgrSelectModule, IgrSwitch } from 'igniteui-react';
 import { useNavigate } from 'react-router-dom';
 import styles from './string-bound-components-view.module.css';
 import createClassTransformer from '../style-utils';
@@ -15,6 +15,11 @@ export default function StringBoundComponentsView() {
   const [stringVariable, setStringVariable] = useState('');
   const handleChange = (event) => {
     setStringVariable(event.value);
+  };
+
+  const [readonlyInput, setreadonlyInput] = useState(false);
+  const handleReadonlyChange = (event) => {
+    setreadonlyInput(event.checked);
   };
 
   return (
@@ -59,8 +64,10 @@ export default function StringBoundComponentsView() {
                   <p className={classes("typography__body-1 text_3")}>
                     <span>Input group</span>
                   </p>
-                  <IgrInput value={stringVariable} inputOcurred={handleChange} label="Label/Placeholder" outlined="true" className={classes("input")}></IgrInput>
-                  <IgrInput value={stringVariable} change={handleChange} label="Label/Placeholder" outlined="true" className={classes("input")}></IgrInput>
+                  <IgrSwitch checked={readonlyInput} change={handleReadonlyChange} className={classes("switch")}>
+                    <span>Readonly/Disable</span>
+                  </IgrSwitch>
+                  <IgrInput value={stringVariable} inputOcurred={handleChange} readonly={readonlyInput} disabled={readonlyInput} label="Label/Placeholder" outlined="true" className={classes("input")}></IgrInput>
                   <p className={classes("typography__body-1 text_4")}>
                     <span>Text Area</span>
                   </p>
@@ -69,19 +76,14 @@ export default function StringBoundComponentsView() {
                 <div className={classes("column-layout group_8")}>
                   <div className={classes("column-layout group_9")}>
                     <p className={classes("typography__body-1 text_3")}>
-                      <span>Select:</span>
+                      <span>Select (disabled in readonly mode!):</span>
                     </p>
-                    <IgrSelect outlined="true" label="Label/Placeholder" placeholder={stringVariable!} value={stringVariable!} change={handleChange} className={classes("select")}>
+                    <IgrSelect outlined="true" label="Label/Placeholder" disabled={readonlyInput} placeholder={stringVariable!} value={stringVariable!} change={handleChange} className={classes("select")}>
                       <IgrSelectItem value="Option">
                         <span>Option</span>
                       </IgrSelectItem>
                       <IgrSelectItem value="Option2">
                         <span>Option2</span>
-                      </IgrSelectItem>
-                    </IgrSelect>
-                    <IgrSelect outlined="true" label="Label/Placeholder" placeholder={stringVariable!} value={stringVariable!} change={handleChange} className={classes("select_1")}>
-                      <IgrSelectItem value="Option">
-                        <span>Option</span>
                       </IgrSelectItem>
                     </IgrSelect>
                   </div>

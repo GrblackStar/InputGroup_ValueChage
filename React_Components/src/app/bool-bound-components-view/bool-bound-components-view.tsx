@@ -18,6 +18,11 @@ export default function BoolBoundComponentsView() {
     setBoolVariable(event.checked);
   };
 
+  const [readonlyInput, setreadonlyInput] = useState(false);
+  const handleReadonlyChange = (event) => {
+    setreadonlyInput(event.checked);
+  };
+
   const boolToStringValue: string = boolVariable.valueOf().toString();
 
   return (
@@ -59,19 +64,16 @@ export default function BoolBoundComponentsView() {
               </div>
               <div className={classes("row-layout group_7")}>
                 <div className={classes("column-layout group_8")}>
-                  <IgrSwitch checked={boolVariable} change={handleChange} className={classes("switch")}>
-                    <span>Label</span>
-                  </IgrSwitch>
-                  <IgrSwitch checked={boolVariable} change={handleChange} className={classes("user-input")}>
-                    <span>Label</span>
+                  <IgrCheckbox labelPosition="after" checked={readonlyInput} change={handleReadonlyChange} className={classes("user-input")}>
+                    <span>ReadOnly / Disabled</span>
+                  </IgrCheckbox>
+                  <IgrSwitch checked={boolVariable} change={handleChange} disabled={readonlyInput} className={classes("user-input")}>
+                    <span>Disabled</span>
                   </IgrSwitch>
                 </div>
                 <div className={classes("column-layout group_9")}>
-                  <IgrCheckbox labelPosition="after" checked={boolVariable} change={handleChange} className={classes("checkbox")}>
-                    <span>Label</span>
-                  </IgrCheckbox>
-                  <IgrCheckbox labelPosition="after" checked={boolVariable} change={handleChange} className={classes("user-input")}>
-                    <span>Label</span>
+                  <IgrCheckbox labelPosition="after" checked={boolVariable} change={handleChange} disabled={readonlyInput} className={classes("checkbox")}>
+                    <span>Disabled</span>
                   </IgrCheckbox>
                 </div>
               </div>

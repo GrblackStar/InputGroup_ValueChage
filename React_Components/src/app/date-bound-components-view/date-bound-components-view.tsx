@@ -1,4 +1,4 @@
-import { IgrButton, IgrButtonModule, IgrCalendar, IgrCalendarModule, IgrRipple, IgrRippleModule } from 'igniteui-react';
+import { IgrButton, IgrButtonModule, IgrCalendar, IgrCalendarModule, IgrCheckbox, IgrRipple, IgrRippleModule } from 'igniteui-react';
 import { IgrDatePicker, IgrDatePickerModule } from 'igniteui-react-inputs';
 import { useNavigate } from 'react-router-dom';
 import styles from './date-bound-components-view.module.css';
@@ -17,6 +17,11 @@ export default function DateBoundComponentsView() {
   const [dateVariable, setDateVariable] = useState(new Date());
   const handleChange = (event) => {
     setDateVariable(event.value);
+  };
+
+  const [readonlyInput, setreadonlyInput] = useState(false);
+  const handleReadonlyChange = (event) => {
+    setreadonlyInput(event.checked);
   };
 
   return (
@@ -58,13 +63,16 @@ export default function DateBoundComponentsView() {
               </div>
               <div className={classes("row-layout group_7")}>
                 <div className={classes("column-layout group_8")}>
-                  <IgrDatePicker label="Date" value={dateVariable!} selectedValueChanged={handleChange}></IgrDatePicker>
+                  <IgrCheckbox labelPosition="after" checked={readonlyInput} change={handleReadonlyChange} className={classes("user-input")}>
+                    <span>ReadOnly / Disabled</span>
+                  </IgrCheckbox>
+                  <IgrDatePicker label="Date" value={dateVariable!} isDisabled={readonlyInput} selectedValueChanged={handleChange}></IgrDatePicker>
                 </div>
                 <div className={classes("column-layout group_9")}>
                   <IgrCalendar hideHeader="Horizontal" value={dateVariable!} change={handleChange} headerOrientation="horizontal" className={classes("calendar")}></IgrCalendar>
                 </div>
                 <div className={classes("column-layout group_10")}>
-                  <IgrCalendar hideHeader="Horizontal" value={dateVariable!} change={handleChange} headerOrientation="horizontal" className={classes("calendar")}></IgrCalendar>
+                  
                 </div>
               </div>
             </div>
