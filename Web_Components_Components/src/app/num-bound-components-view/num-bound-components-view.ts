@@ -185,12 +185,24 @@ export default class NumBoundComponentsView extends LitElement {
       min-width: 50px;
     }
   `;
-  public InputNumber(event: any) {
-	  this.numVariable = event.detail as number;
+  public InputNumber(event: CustomEvent<string>) {
+	  this.numVariable = Number(event.detail);
+  }
+
+  public RadioInput(event: CustomEvent<boolean>) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    this.numVariable = event.detail ? (event.target as any).value as unknown as number : this.numVariable;
+  }
+
+  public isChecked(item: number): boolean {
+    return this.numVariable === item;
   }
 
   @state()
-  private numVariable?: number;
+  private numVariable = 2;
+
+  @state()
+	private numbers = [0, 1, 2, 3, 4];
 
   render() {
     return html`
@@ -230,23 +242,17 @@ export default class NumBoundComponentsView extends LitElement {
                 <div class="column-layout group_8">
                   <igc-input type="number" value="${this.numVariable!}" @igcInput="${this.InputNumber}" label="Duration" ?outlined="${true}" class="input"></igc-input>
                 </div>
-                <igc-rating value="${this.numVariable!}" @igcInput="${this.InputNumber}" size="large" class="rating"></igc-rating>
-                <igc-rating value="${this.numVariable!}" @igcInput="${this.InputNumber}" size="large" class="rating_1"></igc-rating>
-                <igc-radio-group value="${this.numVariable!}" @igcInput="${this.InputNumber}" alignment="horizontal" class="user-input">
-									<igc-radio value="1" class="radio">
-										Label
-									</igc-radio>
-									<igc-radio value="2" class="radio">
-										Label
-									</igc-radio>
-									<igc-radio value="3" class="radio">
-										Label
-									</igc-radio>
+                <igc-rating value="${this.numVariable!}" @igcChange="${this.InputNumber}" size="large" class="rating"></igc-rating>
+                <igc-radio-group>
+                    ${this.numbers?.map((item) => html`
+                      <igc-radio ?value="${item}" ?checked="${this.isChecked(item)}" class="radio" @igcChange="${this.RadioInput}">
+                        ${item}
+                      </igc-radio>
+                    `)}
 								</igc-radio-group>
               </div>
               <div class="column-layout group_9">
-                <igc-slider value="${this.numVariable!}" @igcInput="${this.InputNumber}" min="0" max="100" step="10" ?discrete-track="${true}" class="slider"></igc-slider>
-                <igc-slider value="${this.numVariable!}" @igcInput="${this.InputNumber}" min="0" max="100" step="10" ?discrete-track="${true}" class="slider"></igc-slider>
+                <igc-slider value="${this.numVariable!}" @igcInput="${this.InputNumber}" min="0" max="5" step="1" ?discrete-track="${true}" class="slider"></igc-slider>
               </div>
             </div>
           </div>

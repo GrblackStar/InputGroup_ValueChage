@@ -206,6 +206,10 @@ export default class StringBoundComponentsView extends LitElement {
 	  this.stringVariable = event.detail as string;
   }
 
+  
+	@state()
+	private items = ["Food", "Drinks", "Beverages"];
+
   render() {
     return html`
       <link rel='stylesheet' href='../../ig-theme.css'>
@@ -245,7 +249,6 @@ export default class StringBoundComponentsView extends LitElement {
                   Input group
                 </p>
                 <igc-input value="${this.stringVariable!}" @igcInput="${this.inputIgcInput}" label="Label/Placeholder" ?outlined="${true}" class="input"></igc-input>
-                <igc-input value="${this.stringVariable!}" @igcInput="${this.inputIgcInput}" label="Label/Placeholder" ?outlined="${true}" class="input"></igc-input>
                 <p class="typography__body-1 text_4">
                   Text Area
                 </p>
@@ -256,15 +259,13 @@ export default class StringBoundComponentsView extends LitElement {
                   <p class="typography__body-1 text_3">
                     Select:
                   </p>
-                  <igc-select ?outlined="${true}" label="Label/Placeholder" class="select">
-                    <igc-select-item value="Option">
-                      Option
-                    </igc-select-item>
-                  </igc-select>
-                  <igc-select ?outlined="${true}" label="Label/Placeholder" class="select_1">
-                    <igc-select-item value="Option">
-                      Option
-                    </igc-select-item>
+                  <igc-select ?outlined="${true}" @igcChange="${this.inputIgcInput}" label="Label/Placeholder" class="select">
+
+                    ${this.items?.map((item) => html`
+                      <igc-select-item value="${this.stringVariable}">
+                        ${item}
+                      </igc-select-item>
+                    `)}
                   </igc-select>
                 </div>
               </div>
